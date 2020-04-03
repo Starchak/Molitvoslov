@@ -13,11 +13,12 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 113,
-    paddingTop: 93,
+    paddingTop: 7,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     backgroundColor: '#ffffff',
     width: 375,
+    overflow: 'hidden',
   },
   prays_content_bg: {
     position: 'absolute',
@@ -30,8 +31,17 @@ export default StyleSheet.create({
   title: {
     color: '#ffffff',
     fontFamily: 'Lato',
-    fontSize: 20,
     fontWeight: '700',
     letterSpacing: 1,
-  }
+  },
+  main: {
+    textAlign: 'center',
+    color: '#344252',
+    fontFamily: 'Lato-Semibold',
+  },
+  pray_bg: {
+    position: 'absolute',
+    top: 0,
+    width: '102%',
+  },
 });
