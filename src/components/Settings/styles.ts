@@ -39,16 +39,23 @@ export default StyleSheet.create({
   title: {
     color: Colors.red,
     fontSize: normalize(dSize),
-    fontWeight: 'bold',
     marginBottom: 5,
+    fontFamily: 'Lato-Bold',
   },
 
   btn: {
     marginVertical: 5,
+    paddingBottom: 1,
+  },
+
+  btn_active: {
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.red,
   },
 
   btn_text: {
     color: Colors.red,
+    fontFamily: 'Lato-Light',
     fontSize: normalize(dSize),
   },
 });
