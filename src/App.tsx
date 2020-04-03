@@ -6,7 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import * as RNLocalize from 'react-native-localize';
 import {setI18nConfig} from './config/translate';
-import HomeScreen from './screens/HomeScreen';
+
 import PraysScreen from './screens/PraysScreen';
 import PrayScreen from './screens/PrayScreen';
 
@@ -38,16 +38,15 @@ class App extends Component<Props, State> {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Home"
+          initialRouteName="Prays"
           screenOptions={{headerShown: false}}>
           <Stack.Screen
-            name="Home"
-            component={HomeScreen}
+            name="Prays"
+            component={PraysScreen}
             initialParams={{
               handleLocalizationChange: this.handleLocalizationChange,
             }}
           />
-          <Stack.Screen name="Prays" component={PraysScreen} />
           <Stack.Screen name="Pray" component={PrayScreen} />
         </Stack.Navigator>
       </NavigationContainer>
