@@ -36,15 +36,14 @@ export default StyleSheet.create({
     position: 'absolute',
   },
   pray_btn_text: {
-    height: 31,
+    width: '80%',
+    textAlign: 'center',
     textShadowColor: 'rgba(0, 0, 0, 0.7)',
     textShadowOffset: {width: 1, height: 2},
     textShadowRadius: 2,
     color: '#ffffff',
     fontFamily: 'Lato-Regular',
-    fontSize: 20,
     fontWeight: '700',
     letterSpacing: 1,
-    lineHeight: 30,
   },
 });

@@ -38,7 +38,7 @@ class App extends Component<Props, State> {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Prays"
+          initialRouteName="Pray"
           screenOptions={{headerShown: false}}>
           <Stack.Screen
             name="Prays"
@@ -47,7 +47,13 @@ class App extends Component<Props, State> {
               handleLocalizationChange: this.handleLocalizationChange,
             }}
           />
-          <Stack.Screen name="Pray" component={PrayScreen} />
+          <Stack.Screen
+            name="Pray"
+            component={PrayScreen}
+            initialParams={{
+              handleLocalizationChange: this.handleLocalizationChange,
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );

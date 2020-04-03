@@ -1,28 +1,63 @@
 import React, {Component} from 'react';
 
-import {SafeAreaView, StatusBar, Text} from 'react-native';
-import {Menu} from '../components';
+import {SafeAreaView, StatusBar} from 'react-native';
+import {Menu, Settings, Overlay, PrayContent} from '../components';
 
-import {translate} from '../config/translate';
+import {changeSize} from '../config/typography';
+
+// import {translate} from '../config/translate';
 
 type Props = {
   route: any;
+  navigation: any;
 };
 
-class PrayScreen extends Component<Props> {
-  changeLang = () => {
-    this.props.route.params.handleLocalizationChange('ua');
+type State = {
+  openSettings: boolean;
+};
+
+class PrayScreen extends Component<Props, State> {
+  state = {
+    openSettings: true,
+  };
+
+  togleSettings = () => {
+    this.setState({openSettings: !this.state.openSettings});
+  };
+
+  changeLang = (lang: string) => {
+    this.props.route.params.handleLocalizationChange(lang);
     this.forceUpdate();
   };
+
+  changeFontSize = (size: string) => {
+    changeSize(size, () => {
+      this.forceUpdate();
+    });
+  };
+
   render() {
     return (
       <>
-        <StatusBar barStyle="dark-content" />
-        <Text>{translate('hello')}</Text>
+        <StatusBar barStyle="light-content" />
         <SafeAreaView
           style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <Text>Pray Screen</Text>
-          <Menu />
+          <PrayContent />
+          <Menu
+            routeName={this.props.route.name}
+            navigation={this.props.navigation}
+            togleSettings={this.togleSettings}
+            openSettings={this.state.openSettings}
+          />
+          {this.state.openSettings ? (
+            <>
+              <Settings
+                changeLang={this.changeLang}
+                changeFontSize={this.changeFontSize}
+              />
+              <Overlay togleSettings={this.togleSettings} />
+            </>
+          ) : null}
         </SafeAreaView>
       </>
     );
