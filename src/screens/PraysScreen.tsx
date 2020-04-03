@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import {SafeAreaView, StatusBar, Text} from 'react-native';
-import {Menu, Settings, Overlay} from '../components';
+import {SafeAreaView, StatusBar} from 'react-native';
+import {Menu, Settings, Overlay, PraysContent} from '../components';
 
 import {translate} from '../config/translate';
 
@@ -35,7 +35,7 @@ class PraysScreen extends Component<Props, State> {
         <StatusBar barStyle="dark-content" />
         <SafeAreaView
           style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <Text>{translate('hello')}</Text>
+          <PraysContent />
           <Menu
             routeName={this.props.route.name}
             navigation={this.props.navigation}
