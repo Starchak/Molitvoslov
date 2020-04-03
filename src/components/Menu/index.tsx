@@ -16,16 +16,16 @@ import menu_active_img from '../../assets/img/menu_active.png';
 type Props = {
   routeName: string;
   navigation: any;
+  openSettings: boolean;
+  togleSettings: any;
 };
 type State = {
   praysActive: boolean;
-  settingsActive: boolean;
 };
 
 class Menu extends Component<Props, State> {
   state = {
     praysActive: false,
-    settingsActive: false,
   };
 
   componentDidMount() {
@@ -41,7 +41,7 @@ class Menu extends Component<Props, State> {
   };
 
   togleSettings = () => {
-    this.setState({settingsActive: !this.state.settingsActive});
+    this.props.togleSettings();
   };
 
   render() {
@@ -69,14 +69,14 @@ class Menu extends Component<Props, State> {
         <TouchableOpacity
           style={[styles.menu_btn, {marginLeft: 26}]}
           onPress={this.togleSettings}>
-          {this.state.settingsActive ? (
+          {this.props.openSettings ? (
             <Image style={styles.menu_settings_icon} source={menu_active_img} />
           ) : (
             <Image style={styles.menu_settings_icon} source={menu_img} />
           )}
           <Text
             style={
-              this.state.settingsActive
+              this.props.openSettings
                 ? [styles.menu_text, styles.menu_text_active]
                 : styles.menu_text
             }>

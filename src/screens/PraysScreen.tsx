@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {SafeAreaView, StatusBar, Text} from 'react-native';
-import {Menu} from '../components';
+import {Menu, Settings, Overlay} from '../components';
 
 import {translate} from '../config/translate';
 
@@ -10,11 +10,24 @@ type Props = {
   navigation: any;
 };
 
-class PraysScreen extends Component<Props> {
+type State = {
+  openSettings: boolean;
+};
+
+class PraysScreen extends Component<Props, State> {
+  state = {
+    openSettings: false,
+  };
+
+  togleSettings = () => {
+    this.setState({openSettings: !this.state.openSettings});
+  };
+
   changeLang = () => {
     this.props.route.params.handleLocalizationChange('ua');
     this.forceUpdate();
   };
+
   render() {
     console.log(this.props);
     return (
@@ -26,7 +39,15 @@ class PraysScreen extends Component<Props> {
           <Menu
             routeName={this.props.route.name}
             navigation={this.props.navigation}
+            togleSettings={this.togleSettings}
+            openSettings={this.state.openSettings}
           />
+          {this.state.openSettings ? (
+            <>
+              <Settings />
+              <Overlay />
+            </>
+          ) : null}
         </SafeAreaView>
       </>
     );

@@ -11,6 +11,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    zIndex: 3,
   },
 
   menu_bg: {
