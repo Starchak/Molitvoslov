@@ -7,6 +7,7 @@ import {translate} from '../config/translate';
 
 type Props = {
   route: any;
+  navigation: any;
 };
 
 class PraysScreen extends Component<Props> {
@@ -15,13 +16,17 @@ class PraysScreen extends Component<Props> {
     this.forceUpdate();
   };
   render() {
+    console.log(this.props);
     return (
       <>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView
           style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
           <Text>{translate('hello')}</Text>
-          <Menu />
+          <Menu
+            routeName={this.props.route.name}
+            navigation={this.props.navigation}
+          />
         </SafeAreaView>
       </>
     );

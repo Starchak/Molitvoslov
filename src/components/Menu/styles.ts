@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {dSize, normalize} from '../../config/typography';
+import Colors from '../../config/colors';
 
 export default StyleSheet.create({
   menu_container: {
@@ -15,6 +16,12 @@ export default StyleSheet.create({
   menu_bg: {
     position: 'absolute',
     width: '100%',
+  },
+
+  menu_ornament: {
+    position: 'absolute',
+    width: '100%',
+    bottom: 25,
   },
 
   menu_btn: {
@@ -35,6 +42,9 @@ export default StyleSheet.create({
   menu_text: {
     marginTop: 4,
     fontSize: normalize(dSize),
-    color: '#782A2D',
+    color: Colors.red,
+  },
+  menu_text_active: {
+    color: Colors.gold,
   },
 });
