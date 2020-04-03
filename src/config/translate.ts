@@ -3,10 +3,13 @@ import * as RNLocalize from 'react-native-localize';
 import i18n from 'i18n-js';
 import {I18nManager} from 'react-native';
 
+let currentLang = '';
+
 const translationGetters = {
   // lazy requires (metro bundler does not support symlinks)
   ru: () => require('../assets/translations/ru.json'),
   ua: () => require('../assets/translations/ua.json'),
+  en: () => require('../assets/translations/en.json'),
 };
 
 const translate = memoize(
@@ -17,7 +20,6 @@ const translate = memoize(
 );
 
 const setI18nConfig = (setLang?: string) => {
-  console.log('call ', setLang);
   // fallback if no available language fits
   const fallback = {languageTag: 'ru', isRTL: false};
   let userLang = null;
@@ -29,6 +31,9 @@ const setI18nConfig = (setLang?: string) => {
     case 'ua':
       userLang = {languageTag: 'ua', isRTL: false};
       break;
+    case 'en':
+      userLang = {languageTag: 'en', isRTL: false};
+      break;
     default:
   }
 
@@ -36,6 +41,8 @@ const setI18nConfig = (setLang?: string) => {
     userLang ||
     RNLocalize.findBestAvailableLanguage(Object.keys(translationGetters)) ||
     fallback;
+
+  currentLang = languageTag;
 
   // clear translation cache
   translate.cache.clear!();
@@ -48,4 +55,4 @@ const setI18nConfig = (setLang?: string) => {
   i18n.locale = languageTag;
 };
 
-export {setI18nConfig, translate};
+export {setI18nConfig, translate, currentLang};

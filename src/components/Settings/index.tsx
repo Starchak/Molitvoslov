@@ -1,20 +1,25 @@
 import React, {Component} from 'react';
 
 import {View, Text, TouchableOpacity} from 'react-native';
-import {translate} from '../../config/translate';
+import {translate, currentLang} from '../../config/translate';
+import {currentSize} from '../../config/typography';
 
 import styles from './styles';
 
-type Props = {};
+type Props = {
+  changeLang: any;
+  changeFontSize: any;
+};
+
 type State = {};
 
 class Settings extends Component<Props, State> {
   changeLang = (lang: string) => {
-    console.log(lang);
+    this.props.changeLang(lang);
   };
 
-  changeFontSize = (isRegular: boolean) => {
-    console.log(isRegular);
+  changeFontSize = (size: string) => {
+    this.props.changeFontSize(size);
   };
 
   render() {
@@ -23,16 +28,30 @@ class Settings extends Component<Props, State> {
         <View style={[styles.settings_block, styles.lang_block]}>
           <Text style={styles.title}>{translate('selectLang')}</Text>
           <TouchableOpacity
-            style={styles.btn}
+            style={
+              currentLang === 'ru'
+                ? [styles.btn, styles.btn_active]
+                : styles.btn
+            }
             onPress={() => this.changeLang('ru')}>
             <Text style={styles.btn_text}>{translate('ru')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.btn}
+            style={
+              currentLang === 'ua'
+                ? [styles.btn, styles.btn_active]
+                : styles.btn
+            }
             onPress={() => this.changeLang('ua')}>
             <Text style={styles.btn_text}>{translate('ua')}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity
+            style={
+              currentLang === 'en'
+                ? [styles.btn, styles.btn_active]
+                : styles.btn
+            }
+            onPress={() => this.changeLang('en')}>
             <Text style={styles.btn_text}>{translate('en')}</Text>
           </TouchableOpacity>
         </View>
@@ -40,13 +59,21 @@ class Settings extends Component<Props, State> {
         <View style={[styles.settings_block, styles.font_block]}>
           <Text style={styles.title}>{translate('fontSize')}</Text>
           <TouchableOpacity
-            style={styles.btn}
-            onPress={() => this.changeFontSize(true)}>
+            style={
+              currentSize === 'middle'
+                ? [styles.btn, styles.btn_active]
+                : styles.btn
+            }
+            onPress={() => this.changeFontSize('middle')}>
             <Text style={styles.btn_text}>{translate('middle')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.btn}
-            onPress={() => this.changeFontSize(false)}>
+            style={
+              currentSize === 'large'
+                ? [styles.btn, styles.btn_active]
+                : styles.btn
+            }
+            onPress={() => this.changeFontSize('large')}>
             <Text style={styles.btn_text}>{translate('large')}</Text>
           </TouchableOpacity>
         </View>
