@@ -1,17 +1,13 @@
 import React, {Component} from 'react';
 
-import {
-  Text,
-  TouchableOpacity,
-  Image,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
+import {Text, Image, TouchableWithoutFeedback, View} from 'react-native';
 import {translate} from '../../config/translate';
 
 import styles from './styles';
+import { Size } from '../../config/typography';
 
 type Props = {
+  idx: number;
   bg: any;
   bg_active: any;
   title: string;
@@ -38,7 +34,8 @@ class PrayButton extends Component<Props, State> {
             source={this.state.pressed ? this.props.bg_active : this.props.bg}
             style={styles.pray_btn_img}
           />
-          <Text style={styles.pray_btn_text}>
+          <Text
+            style={[styles.pray_btn_text, Size(20)]}>
             {this.props.title ? this.props.title : ''}
           </Text>
         </View>

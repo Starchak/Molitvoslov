@@ -7,6 +7,7 @@ import {
   ScrollView,
   SafeAreaView,
   View,
+  ImageBackground,
 } from 'react-native';
 import {translate} from '../../config/translate';
 import prays from '../../assets/data/prays';
@@ -15,32 +16,23 @@ import {ScreenTitle, PrayButton} from '..';
 import styles from './styles';
 
 // Icons
-import bg from '../../assets/img/pray_list_bg.png';
+import bg from '../../assets/img/pray_list_active_bg_1.png';
 import pray_img from '../../assets/img/pray_bg_1.png';
 import pray_img_active from '../../assets/img/pray_list_active_bg_1.png';
-
 
 type Props = {};
 type State = {};
 
-class PraysContent extends Component<Props, State> {
+class PrayContent extends Component<Props, State> {
   render() {
     return (
       <View style={styles.prays_content}>
-        <Image source={bg} style={styles.prays_content_bg} />
+        <ImageBackground source={bg} style={styles.prays_content_bg}>
+          <Text style={styles.title}>{translate(prays[0].title)}</Text>
+        </ImageBackground>
         <View style={styles.prays_content_container}>
-          <ScreenTitle />
-          <ScrollView style={{paddingTop: 47}}>
-            {prays.map((el, idx) => {
-              return (
-                <PrayButton
-                  idx={idx}
-                  bg={el.img}
-                  bg_active={el.img_active}
-                  title={translate(el.title)}
-                />
-              );
-            })}
+          <ScrollView>
+            <Text>{translate(prays[0].text)}</Text>
           </ScrollView>
         </View>
       </View>
@@ -48,4 +40,4 @@ class PraysContent extends Component<Props, State> {
   }
 }
 
-export {PraysContent};
+export {PrayContent};

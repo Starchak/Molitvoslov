@@ -13,6 +13,7 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
+    paddingTop: 72,
   },
   prays_content_bg: {
     height: SCREEN_HEIGHT,
