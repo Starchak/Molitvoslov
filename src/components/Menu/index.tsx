@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {Size} from '../../config/typography';
 import {translate} from '../../config/translate';
 
 import styles from './styles';
@@ -69,8 +70,8 @@ class Menu extends Component<Props, State> {
           <Text
             style={
               this.state.praysActive
-                ? [styles.menu_text, styles.menu_text_active]
-                : styles.menu_text
+                ? [styles.menu_text, styles.menu_text_active, Size(12)]
+                : [styles.menu_text, Size(12)]
             }>
             {translate('prays')}
           </Text>
@@ -86,8 +87,8 @@ class Menu extends Component<Props, State> {
           <Text
             style={
               this.props.openSettings
-                ? [styles.menu_text, styles.menu_text_active]
-                : styles.menu_text
+                ? [styles.menu_text, styles.menu_text_active, Size(12)]
+                : [styles.menu_text, Size(12)]
             }>
             {translate('settings')}
           </Text>

@@ -4,7 +4,7 @@ const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
 const scale = SCREEN_WIDTH / 320;
 
-let dSize = 12;
+let dSize = 1;
 let currentSize = 'middle';
 
 export const changeSize = (newSize: string, callback: any) => {
@@ -12,10 +12,10 @@ export const changeSize = (newSize: string, callback: any) => {
   console.log(newSize);
   switch (currentSize) {
     case 'middle':
-      dSize = 12;
+      dSize = 1;
       break;
     case 'large':
-      dSize = 16;
+      dSize = 1.2;
       break;
   }
   console.log(dSize);
@@ -31,4 +31,8 @@ export const normalize = (size: number) => {
   }
 };
 
-export {dSize, currentSize};
+const Size = (size: number) => {
+  return {fontSize: normalize(size * dSize)};
+};
+
+export {dSize, currentSize, Size};

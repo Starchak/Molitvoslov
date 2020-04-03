@@ -1,5 +1,4 @@
 import {StyleSheet, Dimensions} from 'react-native';
-import {dSize, normalize} from '../../config/typography';
 import Colors from '../../config/colors';
 
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
@@ -38,7 +37,6 @@ export default StyleSheet.create({
 
   title: {
     color: Colors.red,
-    fontSize: normalize(dSize),
     marginBottom: 5,
     fontFamily: 'Lato-Bold',
   },
@@ -56,6 +54,5 @@ export default StyleSheet.create({
   btn_text: {
     color: Colors.red,
     fontFamily: 'Lato-Light',
-    fontSize: normalize(dSize),
   },
 });
