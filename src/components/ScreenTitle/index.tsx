@@ -6,7 +6,7 @@ import {translate} from '../../config/translate';
 import styles from './styles';
 
 // Icons
-import pray_img from '../../assets/img/pray_bg_1.png';
+import ornament from '../../assets/img/ornament_title.png';
 
 type Props = {};
 type State = {};
@@ -14,8 +14,12 @@ type State = {};
 class ScreenTitle extends Component<Props, State> {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
+        <Image source={ornament} style={styles.ornament} />
         <Text style={styles.title}>МОЛИТВОСЛОВ</Text>
+        <Image
+          source={ornament}
+          style={{...styles.ornament, transform: [{rotate: '180deg'}]}}></Image>
       </View>
     );
   }

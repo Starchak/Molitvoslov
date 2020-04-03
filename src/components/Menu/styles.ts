@@ -16,7 +16,7 @@ export default StyleSheet.create({
 
   menu_bg: {
     position: 'absolute',
-    width: '100%',
+    width: '110%',
   },
 
   menu_ornament: {

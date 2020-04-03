@@ -6,9 +6,16 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingBottom: 67,
+  },
+  prays_content_container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
   prays_content_bg: {
     position: 'absolute',
-    width: '100%',
+    top: 0,
+    width: '102%',
   },
 });
