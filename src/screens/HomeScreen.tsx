@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import {SafeAreaView, StatusBar, Text, TouchableOpacity} from 'react-native';
+import {Menu} from '../components';
 
 import {translate} from '../config/translate';
 
@@ -24,6 +25,7 @@ class HomeScreen extends Component<Props> {
           <TouchableOpacity onPress={this.changeLang}>
             <Text>Change Lang</Text>
           </TouchableOpacity>
+          <Menu />
         </SafeAreaView>
       </>
     );
