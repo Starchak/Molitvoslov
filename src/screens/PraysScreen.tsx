@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {Menu, Settings, Overlay, PraysContent} from '../components';
 
-import {translate} from '../config/translate';
+// import {translate} from '../config/translate';
 
 type Props = {
   route: any;
@@ -32,7 +32,7 @@ class PraysScreen extends Component<Props, State> {
     console.log(this.props);
     return (
       <>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar barStyle="light-content" />
         <SafeAreaView
           style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
           <PraysContent />
@@ -45,7 +45,7 @@ class PraysScreen extends Component<Props, State> {
           {this.state.openSettings ? (
             <>
               <Settings />
-              <Overlay />
+              <Overlay togleSettings={this.togleSettings} />
             </>
           ) : null}
         </SafeAreaView>

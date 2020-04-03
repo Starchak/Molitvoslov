@@ -9,7 +9,7 @@ export default StyleSheet.create({
     textShadowOffset: {width: 1, height: 2},
     textShadowRadius: 2,
     color: '#ffffff',
-    fontFamily: 'Baskerville Cyrillic',
+    // fontFamily: 'Baskerville Cyrillic',
     fontSize: 30,
     fontWeight: '700',
     letterSpacing: 1.5,

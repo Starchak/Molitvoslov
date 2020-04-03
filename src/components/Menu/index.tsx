@@ -7,9 +7,13 @@ import styles from './styles';
 
 // Icons
 import bottom_shape_img from '../../assets/img/bottom_shape.png';
-import ornament_img from '../../assets/img/ornament.png';
+
+import ornament_light_img from '../../assets/img/ornament_light.png';
+import ornament_dark_img from '../../assets/img/ornament_dark.png';
+
 import pray_img from '../../assets/img/pray.png';
 import pray_active_img from '../../assets/img/pray_active.png';
+
 import menu_img from '../../assets/img/menu.png';
 import menu_active_img from '../../assets/img/menu_active.png';
 
@@ -47,7 +51,12 @@ class Menu extends Component<Props, State> {
   render() {
     return (
       <View style={styles.menu_container}>
-        <Image style={styles.menu_ornament} source={ornament_img} />
+        {this.props.openSettings ? (
+          <Image style={styles.menu_ornament} source={ornament_dark_img} />
+        ) : (
+          <Image style={styles.menu_ornament} source={ornament_light_img} />
+        )}
+
         <Image style={styles.menu_bg} source={bottom_shape_img} />
         <TouchableOpacity
           style={styles.menu_btn}

@@ -1,15 +1,23 @@
 import React, {Component} from 'react';
 
-import {View} from 'react-native';
+import {TouchableWithoutFeedback, View} from 'react-native';
 
 import styles from './styles';
 
-type Props = {};
-type State = {};
+type Props = {
+  togleSettings: any;
+};
 
-class Overlay extends Component<Props, State> {
+class Overlay extends Component<Props> {
+  togleSettings = () => {
+    this.props.togleSettings();
+  };
   render() {
-    return <View style={styles.overlay} />;
+    return (
+      <TouchableWithoutFeedback onPress={this.togleSettings}>
+        <View style={styles.overlay} />
+      </TouchableWithoutFeedback>
+    );
   }
 }
 

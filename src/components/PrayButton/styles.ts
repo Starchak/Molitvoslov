@@ -26,10 +26,10 @@ export default StyleSheet.create({
     textShadowOffset: {width: 1, height: 2},
     textShadowRadius: 2,
     color: '#ffffff',
-    fontFamily: 'Lato',
+    fontFamily: 'Lato-Regular',
     fontSize: 20,
     fontWeight: '700',
     letterSpacing: 1,
     lineHeight: 30,
-  }
+  },
 });
