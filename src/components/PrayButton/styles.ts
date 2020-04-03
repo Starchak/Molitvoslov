@@ -1,9 +1,10 @@
-import {StyleSheet} from 'react-native';
-import {dSize, normalize} from '../../config/typography';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
 export default StyleSheet.create({
   pray_btn: {
-    width: 376,
+    width: SCREEN_WIDTH - 20,
     height: 115,
     shadowColor: 'rgba(0, 0, 0, 0.4)',
     shadowOffset: {width: 3, height: 0},
@@ -18,7 +19,7 @@ export default StyleSheet.create({
     marginBottom: 7,
   },
   pray_btn_active: {
-    width: 376,
+    width: SCREEN_WIDTH - 20,
     height: 115,
     shadowColor: '#f1ea90',
     shadowOffset: {width: 0, height: 4},

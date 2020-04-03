@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import {dSize, normalize} from '../../config/typography';
 
 export default StyleSheet.create({
   prays_content: {
@@ -33,5 +32,5 @@ export default StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
     letterSpacing: 1,
-  }
+  },
 });

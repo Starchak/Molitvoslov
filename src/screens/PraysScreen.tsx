@@ -18,7 +18,7 @@ type State = {
 
 class PraysScreen extends Component<Props, State> {
   state = {
-    openSettings: true,
+    openSettings: false,
   };
 
   togleSettings = () => {

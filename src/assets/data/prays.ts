@@ -13,24 +13,28 @@ const prays = [
     text: 'pray_1_text',
     img: img_1,
     img_active: img_1_active,
+    id: '1',
   },
   {
     title: 'pray_2_title',
     text: 'pray_2_text',
     img: img_2,
     img_active: img_2_active,
+    id: '2',
   },
   {
     title: 'pray_3_title',
     text: 'pray_3_text',
     img: img_3,
     img_active: img_3_active,
+    id: '3',
   },
   {
     title: 'pray_4_title',
     text: 'pray_4_text',
     img: img_4,
     img_active: img_4_active,
+    id: '4',
   },
 ];
 

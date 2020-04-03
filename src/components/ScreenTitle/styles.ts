@@ -1,10 +1,12 @@
-import {StyleSheet} from 'react-native';
-import {dSize, normalize} from '../../config/typography';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
 export default StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 25,
   },
   title: {
     width: 'auto',
@@ -16,7 +18,6 @@ export default StyleSheet.create({
     letterSpacing: 1.5,
   },
   ornament: {
-    width: 232,
-    height: 26,
+    width: SCREEN_WIDTH * 0.9,
   },
 });
