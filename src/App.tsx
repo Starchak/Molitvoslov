@@ -7,6 +7,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import * as RNLocalize from 'react-native-localize';
 import {setI18nConfig} from './config/translate';
 
+import InitialScreen from './screens/InitialScreen';
 import PraysScreen from './screens/PraysScreen';
 import PrayScreen from './screens/PrayScreen';
 
@@ -18,7 +19,6 @@ type State = {};
 class App extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    setI18nConfig(); // set initial config
   }
 
   componentDidMount() {
@@ -29,7 +29,7 @@ class App extends Component<Props, State> {
     RNLocalize.removeEventListener('change', this.handleLocalizationChange);
   }
 
-  handleLocalizationChange = (setLang: string) => {
+  handleLocalizationChange = (setLang?: string) => {
     setI18nConfig(setLang);
     this.forceUpdate();
   };
@@ -38,8 +38,15 @@ class App extends Component<Props, State> {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Prays"
+          initialRouteName="Initial"
           screenOptions={{headerShown: false}}>
+          <Stack.Screen
+            name="Initial"
+            component={InitialScreen}
+            initialParams={{
+              handleLocalizationChange: this.handleLocalizationChange,
+            }}
+          />
           <Stack.Screen
             name="Prays"
             component={PraysScreen}
@@ -47,7 +54,13 @@ class App extends Component<Props, State> {
               handleLocalizationChange: this.handleLocalizationChange,
             }}
           />
-          <Stack.Screen name="Pray" component={PrayScreen} />
+          <Stack.Screen
+            name="Pray"
+            component={PrayScreen}
+            initialParams={{
+              handleLocalizationChange: this.handleLocalizationChange,
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );

@@ -2,6 +2,7 @@ import memoize from 'lodash.memoize';
 import * as RNLocalize from 'react-native-localize';
 import i18n from 'i18n-js';
 import {I18nManager} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 let currentLang = '';
 
@@ -43,6 +44,7 @@ const setI18nConfig = (setLang?: string) => {
     fallback;
 
   currentLang = languageTag;
+  storeData(languageTag);
 
   // clear translation cache
   translate.cache.clear!();
@@ -53,6 +55,14 @@ const setI18nConfig = (setLang?: string) => {
     [languageTag]: (translationGetters as any)[languageTag](),
   };
   i18n.locale = languageTag;
+};
+
+const storeData = async (lang: string) => {
+  try {
+    await AsyncStorage.setItem('@lang', lang);
+  } catch (e) {
+    // saving error
+  }
 };
 
 export {setI18nConfig, translate, currentLang};

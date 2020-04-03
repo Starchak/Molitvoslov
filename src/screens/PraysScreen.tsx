@@ -31,9 +31,8 @@ class PraysScreen extends Component<Props, State> {
   };
 
   changeFontSize = (size: string) => {
-    changeSize(size, () => {
-      this.forceUpdate();
-    });
+    changeSize(size);
+    this.forceUpdate();
   };
 
   render() {

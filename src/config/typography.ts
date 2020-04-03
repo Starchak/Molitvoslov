@@ -1,4 +1,5 @@
 import {PixelRatio, Dimensions, Platform} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
@@ -7,9 +8,8 @@ const scale = SCREEN_WIDTH / 320;
 let dSize = 1;
 let currentSize = 'middle';
 
-export const changeSize = (newSize: string, callback: any) => {
+export const changeSize = (newSize: string) => {
   currentSize = newSize;
-  console.log(newSize);
   switch (currentSize) {
     case 'middle':
       dSize = 1;
@@ -18,8 +18,7 @@ export const changeSize = (newSize: string, callback: any) => {
       dSize = 1.2;
       break;
   }
-  console.log(dSize);
-  return callback();
+  storeData(newSize);
 };
 
 export const normalize = (size: number) => {
@@ -33,6 +32,14 @@ export const normalize = (size: number) => {
 
 const Size = (size: number) => {
   return {fontSize: normalize(size * dSize)};
+};
+
+const storeData = async (size: string) => {
+  try {
+    await AsyncStorage.setItem('@size', size);
+  } catch (e) {
+    // saving error
+  }
 };
 
 export {dSize, currentSize, Size};

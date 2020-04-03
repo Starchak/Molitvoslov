@@ -1,5 +1,6 @@
-import {StyleSheet} from 'react-native';
-import {dSize, normalize} from '../../config/typography';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const {height: SCREEN_HEIGHT} = Dimensions.get('window');
 
 export default StyleSheet.create({
   prays_content: {
@@ -14,8 +15,10 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
   },
   prays_content_bg: {
+    height: SCREEN_HEIGHT,
+    alignSelf: 'center',
+    resizeMode: 'contain',
     position: 'absolute',
-    top: 0,
-    width: '102%',
+    top: -20,
   },
 });
