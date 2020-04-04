@@ -21,11 +21,13 @@ export default StyleSheet.create({
   },
   prays_content_bg: {
     position: 'absolute',
-    top: 0,
     width: '102%',
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 140,
+    minHeight: 160,
+    alignSelf: 'center',
+    resizeMode: 'contain',
+    top: -20,
   },
   title: {
     color: '#ffffff',
