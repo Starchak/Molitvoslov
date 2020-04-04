@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
@@ -37,7 +37,7 @@ export default StyleSheet.create({
     position: 'absolute',
   },
   pray_btn_text: {
-    width: '80%',
+    width: '70%',
     textAlign: 'center',
     textShadowColor: 'rgba(0, 0, 0, 0.7)',
     textShadowOffset: {width: 1, height: 2},

@@ -1,23 +1,12 @@
 import React, {Component} from 'react';
 
-import {
-  Text,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-  SafeAreaView,
-  View,
-  ImageBackground,
-} from 'react-native';
+import {Image, ImageBackground, ScrollView, Text, View,} from 'react-native';
 import {translate} from '../../config/translate';
 import prays from '../../assets/data/prays';
 
-import {ScreenTitle, PrayButton} from '..';
-
 import styles from './styles';
-
 // Icons
-import header from '../../assets/img/pray_list_active_bg_1.png';
+import header from '../../assets/img/pray_bg_1.png';
 import bg from '../../assets/img/bg_2.png';
 import abp from '../../assets/img/abp.png';
 
@@ -34,6 +23,9 @@ class PrayContent extends Component<Props, State> {
           <Text style={[styles.title, Size(20)]}>
             {translate(prays[0].title)}
           </Text>
+          <Text style={[styles.sub_title, Size(12)]}>
+            {translate(prays[0].title)}
+          </Text>
         </ImageBackground>
         <View style={styles.prays_content_container}>
           <Image
@@ -42,7 +34,7 @@ class PrayContent extends Component<Props, State> {
             style={styles.pray_bg}></Image>
           <Image source={abp}></Image>
           <ScrollView>
-            <Text style={[styles.main, Size(28)]}>
+            <Text style={[styles.main, Size(18, 30)]}>
               {translate(prays[0].text)}
             </Text>
           </ScrollView>

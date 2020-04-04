@@ -1,4 +1,4 @@
-import {PixelRatio, Dimensions, Platform} from 'react-native';
+import {Dimensions, PixelRatio, Platform} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
@@ -30,7 +30,13 @@ export const normalize = (size: number) => {
   }
 };
 
-const Size = (size: number) => {
+const Size = (size: number, lineH?: number) => {
+  if (lineH) {
+    return {
+      fontSize: normalize(size * dSize),
+      lineHeight: normalize(lineH * dSize),
+    };
+  }
   return {fontSize: normalize(size * dSize)};
 };
 

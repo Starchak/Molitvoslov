@@ -56,6 +56,8 @@ target 'PrayApp' do
 
   pod 'RNLocalize', :path => '../node_modules/react-native-localize'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
   target 'PrayAppTests' do
     inherit! :complete
     # Pods for testing

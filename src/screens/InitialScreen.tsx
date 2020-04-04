@@ -6,6 +6,7 @@ import {Image, StyleSheet} from 'react-native';
 import splash_screen from '../assets/img/splash_screen.png';
 
 import {changeSize} from '../config/typography';
+import {navigate} from "../config/nav";
 
 type Props = {
   navigation: any;
@@ -26,14 +27,17 @@ class InitialScreen extends Component<Props> {
         if (size !== null) {
           changeSize(size);
         }
-        this.props.navigation.navigate('Prays');
+        // this.props.navigation.navigate('Prays');
+        navigate({name: 'Prays'});
       } else {
         this.changeLang();
-        this.props.navigation.navigate('Prays');
+        // this.props.navigation.navigate('Prays');
+        navigate({name: 'Prays'});
       }
     } catch (e) {
       this.changeLang();
-      this.props.navigation.navigate('Prays');
+      // this.props.navigation.navigate('Prays');
+      navigate({name: 'Prays'});
     }
   };
 

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
-import {Text, Image, TouchableWithoutFeedback, View} from 'react-native';
-import {translate} from '../../config/translate';
+import {Image, Text, TouchableWithoutFeedback, View} from 'react-native';
 
 import styles from './styles';
 import {Size} from '../../config/typography';
+import {navigate} from '../../config/nav';
 
 type Props = {
   bg: any;
@@ -19,10 +19,10 @@ class PrayButton extends Component<Props, State> {
   state = {
     pressed: false,
   };
-
   render() {
     return (
       <TouchableWithoutFeedback
+        onPress={() => navigate({name: 'Pray'})}
         onPressIn={() => this.setState({pressed: true})}
         onPressOut={() => this.setState({pressed: false})}>
         <View
@@ -34,7 +34,7 @@ class PrayButton extends Component<Props, State> {
             style={styles.pray_btn_img}
           />
           <Text style={[styles.pray_btn_text, Size(20)]}>
-            {this.props.title ? this.props.title : ''}
+            {this.props.title}
           </Text>
         </View>
       </TouchableWithoutFeedback>

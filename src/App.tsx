@@ -10,6 +10,7 @@ import {setI18nConfig} from './config/translate';
 import InitialScreen from './screens/InitialScreen';
 import PraysScreen from './screens/PraysScreen';
 import PrayScreen from './screens/PrayScreen';
+import {navigationRef} from './config/nav';
 
 const Stack = createStackNavigator();
 
@@ -36,7 +37,7 @@ class App extends Component<Props, State> {
 
   render() {
     return (
-      <NavigationContainer>
+      <NavigationContainer ref={navigationRef}>
         <Stack.Navigator
           initialRouteName="Initial"
           screenOptions={{headerShown: false}}>

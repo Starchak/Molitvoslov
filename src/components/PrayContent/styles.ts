@@ -16,7 +16,7 @@ export default StyleSheet.create({
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     backgroundColor: '#ffffff',
-    width: 375,
+    width: '100%',
     overflow: 'hidden',
   },
   prays_content_bg: {
@@ -33,10 +33,19 @@ export default StyleSheet.create({
     fontWeight: '700',
     letterSpacing: 1,
   },
+  sub_title: {
+    color: '#ffffff',
+    fontFamily: 'Lato',
+    fontWeight: '400',
+    letterSpacing: 0.6,
+    lineHeight: 19,
+  },
   main: {
     textAlign: 'center',
     color: '#344252',
     fontFamily: 'Lato-Semibold',
+    paddingHorizontal: 25,
+    paddingTop: 10,
   },
   pray_bg: {
     position: 'absolute',

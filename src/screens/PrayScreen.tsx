@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {SafeAreaView, StatusBar} from 'react-native';
-import {Menu, Settings, Overlay, PrayContent} from '../components';
+import {Menu, Overlay, PrayContent, Settings} from '../components';
 
 import {changeSize} from '../config/typography';
 
@@ -18,7 +18,7 @@ type State = {
 
 class PrayScreen extends Component<Props, State> {
   state = {
-    openSettings: true,
+    openSettings: false,
   };
 
   togleSettings = () => {
@@ -31,9 +31,8 @@ class PrayScreen extends Component<Props, State> {
   };
 
   changeFontSize = (size: string) => {
-    changeSize(size, () => {
-      this.forceUpdate();
-    });
+    changeSize(size);
+    this.forceUpdate();
   };
 
   render() {
