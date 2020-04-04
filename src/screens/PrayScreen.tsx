@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {SafeAreaView, StatusBar} from 'react-native';
-import {Menu, Overlay, PrayContent, Settings} from '../components';
+import {Menu, PrayContent} from '../components';
 
 import {changeSize} from '../config/typography';
 
@@ -19,10 +19,6 @@ type State = {
 class PrayScreen extends Component<Props, State> {
   state = {
     openSettings: false,
-  };
-
-  togleSettings = () => {
-    this.setState({openSettings: !this.state.openSettings});
   };
 
   changeLang = (lang: string) => {
@@ -45,18 +41,9 @@ class PrayScreen extends Component<Props, State> {
           <Menu
             routeName={this.props.route.name}
             navigation={this.props.navigation}
-            togleSettings={this.togleSettings}
-            openSettings={this.state.openSettings}
+            changeLang={this.changeLang}
+            changeFontSize={this.changeFontSize}
           />
-          {this.state.openSettings ? (
-            <>
-              <Settings
-                changeLang={this.changeLang}
-                changeFontSize={this.changeFontSize}
-              />
-              <Overlay togleSettings={this.togleSettings} />
-            </>
-          ) : null}
         </SafeAreaView>
       </>
     );
