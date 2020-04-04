@@ -1,19 +1,28 @@
 import React, {Component} from 'react';
 
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Animated, Dimensions} from 'react-native';
 import {translate, currentLang} from '../../config/translate';
 import {currentSize, Size} from '../../config/typography';
 
 import styles from './styles';
 
+const {height: SCREEN_HEIGHT} = Dimensions.get('window');
+
 type Props = {
   changeLang: any;
   changeFontSize: any;
+  togleSettings: any;
+  show: boolean;
 };
 
-type State = {};
+type State = {
+  showAnim: any;
+};
 
 class Settings extends Component<Props, State> {
+  state = {
+    showAnim: new Animated.Value(-(SCREEN_HEIGHT / 3 + 87)),
+  };
   changeLang = (lang: string) => {
     this.props.changeLang(lang);
   };
@@ -22,9 +31,39 @@ class Settings extends Component<Props, State> {
     this.props.changeFontSize(size);
   };
 
+  componentDidMount() {
+    this.show();
+  }
+
+  componentDidUpdate() {
+    if (this.props.show) {
+      this.show();
+    } else {
+      this.hide();
+    }
+  }
+
+  show = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(this.state.showAnim, {
+      toValue: 0,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
+  };
+
+  hide = () => {
+    // Will change fadeAnim value to 0 in 5 seconds
+    Animated.timing(this.state.showAnim, {
+      toValue: -(SCREEN_HEIGHT / 3 + 87),
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
+  };
+
   render() {
     return (
-      <View style={styles.settings}>
+      <Animated.View style={[styles.settings, {bottom: this.state.showAnim}]}>
         <View style={[styles.settings_block, styles.lang_block]}>
           <Text style={[styles.title, Size(12)]}>
             {translate('selectLang')}
@@ -83,7 +122,7 @@ class Settings extends Component<Props, State> {
             </Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </Animated.View>
     );
   }
 }
