@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 import {Image, ImageBackground, ScrollView, Text, View,} from 'react-native';
 import {translate} from '../../config/translate';
-import prays from '../../assets/data/prays';
 
 import styles from './styles';
 // Icons
@@ -12,7 +11,18 @@ import abp from '../../assets/img/abp.png';
 
 import {Size} from '../../config/typography';
 
-type Props = {};
+type data = {
+  title: string;
+  sub_title: string;
+  text: string;
+  img: any;
+  img_active: any;
+  id: number;
+};
+
+type Props = {
+  data: data;
+};
 type State = {};
 
 class PrayContent extends Component<Props, State> {
@@ -21,10 +31,10 @@ class PrayContent extends Component<Props, State> {
       <View style={styles.prays_content}>
         <ImageBackground source={header} style={styles.prays_content_bg}>
           <Text style={[styles.title, Size(20)]}>
-            {translate(prays[0].title)}
+            {translate(this.props.data.title)}
           </Text>
           <Text style={[styles.sub_title, Size(12)]}>
-            {translate(prays[0].title)}
+            {translate(this.props.data.sub_title)}
           </Text>
         </ImageBackground>
         <View style={styles.prays_content_container}>
@@ -35,7 +45,7 @@ class PrayContent extends Component<Props, State> {
           <Image source={abp}></Image>
           <ScrollView>
             <Text style={[styles.main, Size(18, 30)]}>
-              {translate(prays[0].text)}
+              {translate(this.props.data.text)}
             </Text>
           </ScrollView>
         </View>
