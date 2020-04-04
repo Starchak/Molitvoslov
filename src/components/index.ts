@@ -5,3 +5,4 @@ export {PrayButton} from './PrayButton';
 export {PraysContent} from './PraysContent';
 export {PrayContent} from './PrayContent';
 export {ScreenTitle} from './ScreenTitle';
+export {Player} from './Player';

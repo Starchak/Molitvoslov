@@ -7,11 +7,11 @@ import styles from './styles';
 // Icons
 import header from '../../assets/img/pray_bg_1.png';
 import bg from '../../assets/img/bg_2.png';
-import abp from '../../assets/img/abp.png';
 
 import {Size} from '../../config/typography';
+import {Player} from "../Player";
 
-type data = {
+type Data = {
   title: string;
   sub_title: string;
   text: string;
@@ -21,7 +21,7 @@ type data = {
 };
 
 type Props = {
-  data: data;
+  data: Data;
 };
 type State = {};
 
@@ -42,7 +42,7 @@ class PrayContent extends Component<Props, State> {
             source={bg}
             resizeMode={'contain'}
             style={styles.pray_bg}></Image>
-          <Image source={abp}></Image>
+          <Player></Player>
           <ScrollView>
             <Text style={[styles.main, Size(18, 30)]}>
               {translate(this.props.data.text)}
