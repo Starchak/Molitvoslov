@@ -10,6 +10,7 @@ import img_4 from '../../assets/img/pray_bg_4.png';
 const prays = [
   {
     title: 'pray_1_title',
+    sub_title: 'pray_1_sub_title',
     text: 'pray_1_text',
     img: img_1,
     img_active: img_1_active,
@@ -17,6 +18,7 @@ const prays = [
   },
   {
     title: 'pray_2_title',
+    sub_title: 'pray_2_sub_title',
     text: 'pray_2_text',
     img: img_2,
     img_active: img_2_active,
@@ -24,6 +26,7 @@ const prays = [
   },
   {
     title: 'pray_3_title',
+    sub_title: 'pray_3_sub_title',
     text: 'pray_3_text',
     img: img_3,
     img_active: img_3_active,
@@ -31,6 +34,7 @@ const prays = [
   },
   {
     title: 'pray_4_title',
+    sub_title: 'pray_4_sub_title',
     text: 'pray_4_text',
     img: img_4,
     img_active: img_4_active,

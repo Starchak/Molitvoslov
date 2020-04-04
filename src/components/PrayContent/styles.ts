@@ -25,13 +25,15 @@ export default StyleSheet.create({
     width: '102%',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 140,
+    minHeight: 140,
   },
   title: {
     color: '#ffffff',
     fontFamily: 'Lato',
     fontWeight: '700',
     letterSpacing: 1,
+    width: '80%',
+    textAlign: 'center',
   },
   sub_title: {
     color: '#ffffff',

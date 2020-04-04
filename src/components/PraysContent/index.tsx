@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 
-import {Image, FlatList, View} from 'react-native';
-import {translate} from '../../config/translate';
+import {FlatList, Image, View} from 'react-native';
 import prays from '../../assets/data/prays';
-import {ScreenTitle, PrayButton} from '..';
+import {PrayButton, ScreenTitle} from '..';
 
 import styles from './styles';
-
 // Icons
 import bg from '../../assets/img/pray_list_bg.png';
 
@@ -23,11 +21,7 @@ class PraysContent extends Component<Props, State> {
           <FlatList
             data={prays}
             renderItem={({item}) => (
-              <PrayButton
-                bg={item.img}
-                bg_active={item.img_active}
-                title={translate(item.title)}
-              />
+              <PrayButton data={item}/>
             )}
             keyExtractor={(item) => item.id}
           />
