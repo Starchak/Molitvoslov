@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import React, {Component} from 'react';
+import SplashScreen from 'react-native-splash-screen';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -23,6 +24,7 @@ class App extends Component<Props, State> {
   }
 
   componentDidMount() {
+    setTimeout(() => SplashScreen.hide(), 200);
     RNLocalize.addEventListener('change', this.handleLocalizationChange);
   }
 

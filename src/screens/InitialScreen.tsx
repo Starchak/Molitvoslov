@@ -6,7 +6,7 @@ import {Image, StyleSheet} from 'react-native';
 import splash_screen from '../assets/img/splash_screen.png';
 
 import {changeSize} from '../config/typography';
-import {navigate} from "../config/nav";
+import {navigate} from '../config/nav';
 
 type Props = {
   navigation: any;
