@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 
 import {Image, PanResponder, TouchableHighlight, View} from 'react-native';
 
-import TrackPlayer, {Track} from 'react-native-track-player';
+import TrackPlayer, {Capability, Track} from 'react-native-track-player';
 
 import styles from './styles';
 import pause from '../../assets/img/pause.png';
@@ -70,18 +70,14 @@ class Player extends Component<Props, State> {
     TrackPlayer.setupPlayer().then(() => {
       // The player is ready to be used
     });
-    // TrackPlayer.updateOptions({
-    //   capabilities: [
-    //     TrackPlayer.CAPABILITY_PLAY,
-    //     TrackPlayer.CAPABILITY_PAUSE,
-    //     TrackPlayer.CAPABILITY_STOP,
-    //   ],
-    //   compactCapabilities: [
-    //     TrackPlayer.CAPABILITY_PLAY,
-    //     TrackPlayer.CAPABILITY_PAUSE,
-    //   ],
-    //   icon: require('../../assets/img/pray.png'),
-    // });
+    TrackPlayer.updateOptions({
+      capabilities: [
+        Capability.Play,
+        Capability.Pause,
+        Capability.Stop,
+      ],
+      icon: require('../../assets/img/pray.png'),
+    });
     let th = this;
     TrackPlayer.add(this.props.track).then(function () {
       TrackPlayer.play();
