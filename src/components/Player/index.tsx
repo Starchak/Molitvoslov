@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
-import {Image, PanResponder, TouchableHighlight, View,} from 'react-native';
+import {Image, PanResponder, TouchableHighlight, View} from 'react-native';
 
 import TrackPlayer, {ProgressComponent, Track} from 'react-native-track-player';
 
@@ -50,15 +50,16 @@ class Player extends ProgressComponent<Props, State> {
     onPanResponderRelease: (evt, gestureState) => {
       console.log(this.state);
     },
-    onPanResponderTerminate: (evt, gestureState) => {
-    },
+    onPanResponderTerminate: (evt, gestureState) => {},
     onShouldBlockNativeResponder: (evt, gestureState) => {
       return true;
     },
   });
   progress = setInterval(
     () =>
-      TrackPlayer.getPosition().then((evt) => this.setState({progress: evt / this.state.duration})),
+      TrackPlayer.getPosition().then((evt) =>
+        this.setState({progress: evt / this.state.duration}),
+      ),
     200,
   );
 
@@ -101,7 +102,7 @@ class Player extends ProgressComponent<Props, State> {
         <TouchableHighlight
           style={styles.play}
           onPress={() => TrackPlayer.pause()}>
-          <Image style={styles.play_img} source={pause}/>
+          <Image style={styles.play_img} source={pause} />
         </TouchableHighlight>
         <View>
           <View
@@ -125,8 +126,7 @@ class Player extends ProgressComponent<Props, State> {
             style={[
               styles.play_bg,
               {
-                width:
-                  this.state.width * this.state.progress,
+                width: this.state.width * this.state.progress,
                 backgroundColor: '#e5c077',
               },
             ]}

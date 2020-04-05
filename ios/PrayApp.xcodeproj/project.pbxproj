@@ -22,6 +22,7 @@
 		469FB4BFC245FA3402999A8A /* libPods-PrayApp-PrayAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0192BFB25066C6B3369A4071 /* libPods-PrayApp-PrayAppTests.a */; };
 		860D4CFD2438E0E2006D81AE /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 860D4CFC2438E0E2006D81AE /* AppIcon.appiconset */; };
 		860D4CFF2438E1FD006D81AE /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 860D4CFE2438E1FD006D81AE /* splash_screen.png */; };
+		8613F0E2243A97C4005E65A5 /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613F0E1243A97C4005E65A5 /* dummy.swift */; };
 		9E952A77DAF035976A1CC3D3 /* libPods-PrayApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C875CC1362592666246C2EE /* libPods-PrayApp-tvOS.a */; };
 		A45C5391F6174D2AB409F526 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75EE6FA2525946428BDE0ABD /* Lato-Light.ttf */; };
 		AB4AC2B3BF5FC1A432F0A820 /* libPods-PrayApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6011CE87A61F3A6F81FF33D /* libPods-PrayApp-tvOSTests.a */; };
@@ -75,6 +76,8 @@
 		83A3DB346E1B4CD89BE223A9 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Semibold.ttf"; path = "../src/assets/fonts/Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		860D4CFC2438E0E2006D81AE /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		860D4CFE2438E1FD006D81AE /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = ../src/assets/img/splash_screen.png; sourceTree = "<group>"; };
+		8613F0E1243A97C4005E65A5 /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
+		86FDF42C243A973B006A1A56 /* PrayApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PrayApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		972CFE6A08C3AD1E3BCA4CBB /* Pods-PrayApp-PrayAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrayApp-PrayAppTests.release.xcconfig"; path = "Target Support Files/Pods-PrayApp-PrayAppTests/Pods-PrayApp-PrayAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		BB53C33ED79D452D9C2AE1A7 /* BaskervilleCyrillic-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "BaskervilleCyrillic-Bold.ttf"; path = "../src/assets/fonts/BaskervilleCyrillic-Bold.ttf"; sourceTree = "<group>"; };
 		ED1CCDDD24DFD5942CAB12B2 /* Pods-PrayApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrayApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-PrayApp-tvOS/Pods-PrayApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				86FDF42C243A973B006A1A56 /* PrayApp-Bridging-Header.h */,
+				8613F0E1243A97C4005E65A5 /* dummy.swift */,
 			);
 			name = PrayApp;
 			sourceTree = "<group>";
@@ -568,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				8613F0E2243A97C4005E65A5 /* dummy.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,6 +627,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E9EC93295F0A3E1D073E901 /* Pods-PrayApp-PrayAppTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = AE2W3MKCJW;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -645,6 +652,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 972CFE6A08C3AD1E3BCA4CBB /* Pods-PrayApp-PrayAppTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = AE2W3MKCJW;
@@ -684,6 +692,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.molitvoslov;
 				PRODUCT_NAME = PrayApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "PrayApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -707,6 +716,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.molitvoslov;
 				PRODUCT_NAME = PrayApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "PrayApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -869,7 +879,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
@@ -922,7 +932,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
