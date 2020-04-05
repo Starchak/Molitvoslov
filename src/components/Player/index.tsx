@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import React, {Component} from 'react';
 
 import {Image, PanResponder, TouchableHighlight, View} from 'react-native';
 
-import TrackPlayer, {ProgressComponent, Track} from 'react-native-track-player';
+import TrackPlayer, {Capability, Track} from 'react-native-track-player';
 
 import styles from './styles';
 import pause from '../../assets/img/pause.png';
@@ -22,7 +22,7 @@ type State = {
   seek: number;
 };
 
-class Player extends ProgressComponent<Props, State> {
+class Player extends Component<Props, State> {
   state = {
     progress: 0,
     duration: 1,
@@ -65,19 +65,15 @@ class Player extends ProgressComponent<Props, State> {
 
   componentDidMount(): void {
     // let position = await TrackPlayer.getPosition();
-    TrackPlayer.destroy();
+    // TrackPlayer.destroy();
     TrackPlayer.setupPlayer().then(() => {
       // The player is ready to be used
     });
     TrackPlayer.updateOptions({
       capabilities: [
-        TrackPlayer.CAPABILITY_PLAY,
-        TrackPlayer.CAPABILITY_PAUSE,
-        TrackPlayer.CAPABILITY_STOP,
-      ],
-      compactCapabilities: [
-        TrackPlayer.CAPABILITY_PLAY,
-        TrackPlayer.CAPABILITY_PAUSE,
+        Capability.Play,
+        Capability.Pause,
+        Capability.Stop,
       ],
       icon: require('../../assets/img/pray.png'),
     });
