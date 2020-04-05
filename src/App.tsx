@@ -24,7 +24,7 @@ class App extends Component<Props, State> {
   }
 
   componentDidMount() {
-    setTimeout(() => SplashScreen.hide(), 200);
+    setTimeout(() => SplashScreen.hide(), 500);
     RNLocalize.addEventListener('change', this.handleLocalizationChange);
   }
 
