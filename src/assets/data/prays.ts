@@ -15,6 +15,14 @@ const prays = [
     img: img_1,
     img_active: img_1_active,
     id: '1',
+    track: {
+      id: '1',
+      url: require('../../assets/audio/test.mp3'),
+      title: 'pray_1_title',
+      artwork: img_1_active,
+      artist: '',
+      duration: 60,
+    },
   },
   {
     title: 'pray_2_title',
@@ -23,6 +31,14 @@ const prays = [
     img: img_2,
     img_active: img_2_active,
     id: '2',
+    track: {
+      id: '2',
+      url: require('../../assets/audio/test.mp3'),
+      title: 'pray_2_title',
+      artwork: img_2_active,
+      artist: '',
+      duration: 60,
+    },
   },
   {
     title: 'pray_3_title',
@@ -31,6 +47,14 @@ const prays = [
     img: img_3,
     img_active: img_3_active,
     id: '3',
+    track: {
+      id: '3',
+      url: require('../../assets/audio/test.mp3'),
+      title: 'pray_3_title',
+      artwork: img_3_active,
+      artist: '',
+      duration: 60,
+    },
   },
   {
     title: 'pray_4_title',
@@ -39,6 +63,7 @@ const prays = [
     img: img_4,
     img_active: img_4_active,
     id: '4',
+    track: null,
   },
 ];
 
