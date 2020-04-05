@@ -5230,10 +5230,10 @@ react-native-screens@^2.4.0:
   dependencies:
     debounce "^1.2.0"
 
-react-native-track-player@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/react-native-track-player/-/react-native-track-player-1.2.2.tgz#97e6d956ac2de70ed24b2665799d48075750b1e9"
-  integrity sha512-+Fv+dF4D8TRkq9kQ9sWKfqYmmvjkKaA4wGG+PRQO3aHRHnaswZG5o9TFbbY7xaLWNTxmmcSMR0YNcMm/Of91xQ==
+react-native-track-player@^2.0.0-rc13:
+  version "2.0.0-rc13"
+  resolved "https://registry.yarnpkg.com/react-native-track-player/-/react-native-track-player-2.0.0-rc13.tgz#8519b58ac3cdbc18685bab6d04bd6746a5c78562"
+  integrity sha512-U069Ew4vzhWpr3vkxt3A42g19b4cCO/NtTY+X7BLzJD/xCoCXu4PZ3f8/XcOtUJFDICR24hrnlF7OB5eOywIGA==
 
 react-native@0.62.0:
   version "0.62.0"

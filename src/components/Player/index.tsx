@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import React, {Component} from 'react';
 
-import {Image, PanResponder, TouchableHighlight, View,} from 'react-native';
+import {Image, PanResponder, TouchableHighlight, View} from 'react-native';
 
-import TrackPlayer, {ProgressComponent, Track} from 'react-native-track-player';
+import TrackPlayer, {Track} from 'react-native-track-player';
 
 import styles from './styles';
 import pause from '../../assets/img/pause.png';
@@ -22,7 +22,7 @@ type State = {
   seek: number;
 };
 
-class Player extends ProgressComponent<Props, State> {
+class Player extends Component<Props, State> {
   state = {
     progress: 0,
     duration: 1,
@@ -58,28 +58,30 @@ class Player extends ProgressComponent<Props, State> {
   });
   progress = setInterval(
     () =>
-      TrackPlayer.getPosition().then((evt) => this.setState({progress: evt / this.state.duration})),
+      TrackPlayer.getPosition().then((evt) =>
+        this.setState({progress: evt / this.state.duration}),
+      ),
     200,
   );
 
   componentDidMount(): void {
     // let position = await TrackPlayer.getPosition();
-    TrackPlayer.destroy();
+    // TrackPlayer.destroy();
     TrackPlayer.setupPlayer().then(() => {
       // The player is ready to be used
     });
-    TrackPlayer.updateOptions({
-      capabilities: [
-        TrackPlayer.CAPABILITY_PLAY,
-        TrackPlayer.CAPABILITY_PAUSE,
-        TrackPlayer.CAPABILITY_STOP,
-      ],
-      compactCapabilities: [
-        TrackPlayer.CAPABILITY_PLAY,
-        TrackPlayer.CAPABILITY_PAUSE,
-      ],
-      icon: require('../../assets/img/pray.png'),
-    });
+    // TrackPlayer.updateOptions({
+    //   capabilities: [
+    //     TrackPlayer.CAPABILITY_PLAY,
+    //     TrackPlayer.CAPABILITY_PAUSE,
+    //     TrackPlayer.CAPABILITY_STOP,
+    //   ],
+    //   compactCapabilities: [
+    //     TrackPlayer.CAPABILITY_PLAY,
+    //     TrackPlayer.CAPABILITY_PAUSE,
+    //   ],
+    //   icon: require('../../assets/img/pray.png'),
+    // });
     let th = this;
     TrackPlayer.add(this.props.track).then(function () {
       TrackPlayer.play();
@@ -125,8 +127,7 @@ class Player extends ProgressComponent<Props, State> {
             style={[
               styles.play_bg,
               {
-                width:
-                  this.state.width * this.state.progress,
+                width: this.state.width * this.state.progress,
                 backgroundColor: '#e5c077',
               },
             ]}

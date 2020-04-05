@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {Component} from 'react';
 
-import {Image, PanResponder, View,} from 'react-native';
+import {Image, PanResponder, View} from 'react-native';
 
 import styles from './styles';
 import wave from '../../assets/img/wave.png';
@@ -20,7 +20,6 @@ type State = {
 };
 
 class ProgressBar extends Component<Props, State> {
-
   state = {
     x: 0,
     dx: 0,
