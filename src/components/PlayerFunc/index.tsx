@@ -15,12 +15,18 @@ type Props = {
 };
 
 export default function Player(props: Props) {
+  console.log('update');
   TrackPlayer.destroy();
   TrackPlayer.setupPlayer().then(() => {
     // The player is ready to be used
   });
   TrackPlayer.updateOptions({
-    capabilities: [Capability.Play, Capability.Pause, Capability.Stop],
+    capabilities: [
+      Capability.Play,
+      Capability.Pause,
+      Capability.Stop,
+      Capability.SeekTo,
+    ],
     icon: require('../../assets/img/pray.png'),
   });
   TrackPlayer.add(props.track).then(function () {
