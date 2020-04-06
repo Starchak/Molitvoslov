@@ -43,7 +43,7 @@ class Player extends Component<Props, State> {
     },
     onPanResponderMove: (evt, gestureState) => {
       this.setState({
-        seek: this.state.x0 - this.state.x + gestureState.dx || 0,
+        seek: this.state.x0 - this.state.x + gestureState.dx,
       });
     },
     onPanResponderTerminationRequest: (evt, gestureState) => true,
@@ -70,18 +70,14 @@ class Player extends Component<Props, State> {
       // The player is ready to be used
     });
     TrackPlayer.updateOptions({
-      capabilities: [
-        Capability.Play,
-        Capability.Pause,
-        Capability.Stop,
-      ],
+      capabilities: [Capability.Play, Capability.Pause, Capability.Stop],
       icon: require('../../assets/img/pray.png'),
     });
     let th = this;
-    TrackPlayer.add(this.props.track).then(function () {
-      TrackPlayer.play();
-      TrackPlayer.getDuration().then((evt) => th.setState({duration: evt}));
-    });
+    // TrackPlayer.add(this.props.track).then(function () {
+    //   TrackPlayer.play();
+    //   TrackPlayer.getDuration().then((evt) => th.setState({duration: evt}));
+    // });
   }
 
   componentWillUnmount(): void {
@@ -122,7 +118,7 @@ class Player extends Component<Props, State> {
             style={[
               styles.play_bg,
               {
-                width: this.state.width * this.state.progress,
+                width: (this.state.width * this.state.progress) || 0,
                 backgroundColor: '#e5c077',
               },
             ]}
