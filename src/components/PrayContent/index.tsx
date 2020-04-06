@@ -9,7 +9,7 @@ import header from '../../assets/img/pray_bg_1.png';
 import bg from '../../assets/img/bg_2.png';
 
 import {Size} from '../../config/typography';
-import {Player} from '../Player';
+import Player from '../PlayerFunc';
 import {Track} from 'react-native-track-player';
 
 type Data = {

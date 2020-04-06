@@ -7,9 +7,7 @@ import styles from './styles';
 import wave from '../../assets/img/wave.png';
 
 type Props = {
-  duration: any;
-  buffered: any;
-  progress: number;
+  progress: any;
 };
 type State = {
   x: number;
@@ -39,9 +37,7 @@ class ProgressBar extends Component<Props, State> {
     },
     onPanResponderMove: (evt, gestureState) => {
       this.setState({
-        seek:
-          (this.state.x0 - this.state.x + gestureState.dx) ||
-          0,
+        seek: this.state.x0 - this.state.x + gestureState.dx || 0,
       });
     },
     onPanResponderTerminationRequest: (evt, gestureState) => true,
@@ -69,15 +65,15 @@ class ProgressBar extends Component<Props, State> {
             },
           ]}
         />
-        {/*<View*/}
-        {/*  style={[*/}
-        {/*    styles.play_bg,*/}
-        {/*    {*/}
-        {/*      width: this.state.width * this.props.progress / this.props.duration,*/}
-        {/*      backgroundColor: '#e5c077',*/}
-        {/*    },*/}
-        {/*  ]}*/}
-        {/*/>*/}
+        <View
+          style={[
+            styles.play_bg,
+            {
+              width: this.state.width * this.props.progress.position / this.props.progress.duration || 1,
+              backgroundColor: '#e5c077',
+            },
+          ]}
+        />
         <View
           style={[
             styles.play_bg,
@@ -91,12 +87,15 @@ class ProgressBar extends Component<Props, State> {
         <Image
           source={wave}
           {...this._panResponder.panHandlers}
-          onLayout={(event) =>
-            this.setState({
-              x: event.nativeEvent.layout.x,
-              width: event.nativeEvent.layout.width,
-            })
-          }
+          ref="Marker"
+          onLayout={({nativeEvent}) => {
+            this.refs.Marker.measure((x, y, width, height, pageX, pageY) => {
+              this.setState({
+                x: pageX,
+                width: width,
+              });
+            });
+          }}
         />
       </View>
     );

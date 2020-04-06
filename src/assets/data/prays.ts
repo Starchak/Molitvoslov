@@ -21,7 +21,7 @@ const prays = [
       title: 'pray_1_title',
       artwork: img_1_active,
       artist: '',
-      duration: 60,
+      duration: 468,
     },
   },
   {

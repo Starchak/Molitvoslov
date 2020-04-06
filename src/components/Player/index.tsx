@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 
 import {Image, PanResponder, TouchableHighlight, View} from 'react-native';
 
-import TrackPlayer, {Capability, Track} from 'react-native-track-player';
+import TrackPlayer, {Capability, Track, useProgress} from 'react-native-track-player';
 
 import styles from './styles';
 import pause from '../../assets/img/pause.png';
@@ -21,6 +21,11 @@ type State = {
   x0: number;
   seek: number;
 };
+
+function Progress() {
+  let progress = useProgress();
+  console.log(progress.position);
+}
 
 class Player extends Component<Props, State> {
   state = {
@@ -58,14 +63,14 @@ class Player extends Component<Props, State> {
   progress = setInterval(
     () =>
       TrackPlayer.getPosition().then((evt) =>
-        this.setState({progress: evt / this.state.duration}),
+        this.setState({progress: (evt / this.state.duration) || 0}),
       ),
     200,
   );
 
   componentDidMount(): void {
     // let position = await TrackPlayer.getPosition();
-    // TrackPlayer.destroy();
+    TrackPlayer.destroy();
     TrackPlayer.setupPlayer().then(() => {
       // The player is ready to be used
     });
