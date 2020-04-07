@@ -40,9 +40,9 @@ class PrayContent extends Component<Props, State> {
           </Text>
         </ImageBackground>
         <View style={styles.prays_content_container}>
-          <Image source={bg} resizeMode={'contain'} style={styles.pray_bg}/>
+          <Image source={bg} resizeMode={'contain'} style={styles.pray_bg} />
           {this.props.data.track ? (
-            <Player track={this.props.data.track}/>
+            <Player track={this.props.data.track} />
           ) : null}
           <ScrollView>
             <Text style={[styles.main, Size(18, 30)]}>

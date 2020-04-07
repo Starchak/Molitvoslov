@@ -31,8 +31,8 @@ class ProgressBar extends Component<Props, State> {
     seek: 0,
   };
   seekTo = (pos: number) => {
-    console.log('pB: ', pos)
-    this.props.SeekTo(Math.ceil(pos))
+    console.log('pB: ', pos);
+    this.props.SeekTo(Math.ceil(pos));
   };
 
   _panResponder = PanResponder.create({
@@ -46,11 +46,11 @@ class ProgressBar extends Component<Props, State> {
       this.setState({x0: gestureState.x0});
     },
     onPanResponderMove: (evt, gestureState) => {
-      console.log("x0: ", this.state.x0);
-      console.log("x: ", this.state.x)
-      console.log("dX: ", gestureState.dx)
+      console.log('x0: ', this.state.x0);
+      console.log('x: ', this.state.x);
+      console.log('dX: ', gestureState.dx);
       let seek = this.state.x0 - this.state.x + gestureState.dx;
-      console.log("seek: ", seek)
+      console.log('seek: ', seek);
       if (seek < 0) {
         this.setState({
           seek: 0,
@@ -73,8 +73,7 @@ class ProgressBar extends Component<Props, State> {
       // TrackPlayer.pause();
       // TrackPlayer.play();
     },
-    onPanResponderTerminate: (evt, gestureState) => {
-    },
+    onPanResponderTerminate: (evt, gestureState) => {},
     onShouldBlockNativeResponder: (evt, gestureState) => {
       return true;
     },
@@ -86,7 +85,10 @@ class ProgressBar extends Component<Props, State> {
 
   render() {
     return (
-      <View>
+      <View
+        onLayout={({nativeEvent}) => {
+          console.log('1: ', nativeEvent);
+        }}>
         <View
           style={[
             styles.play_bg,
@@ -114,21 +116,18 @@ class ProgressBar extends Component<Props, State> {
               backgroundColor: '#e5c077',
             },
           ]}
-          onLayout={({nativeEvent}) => {
-            console.log("1: ", nativeEvent)
-          }}
         />
 
         <Image
           source={wave}
           {...this._panResponder.panHandlers}
-          ref="Marker"
+          ref={(ref) => (this.Marker = ref)}
           onLayout={({nativeEvent}) => {
             console.log(nativeEvent);
-            this.refs.Marker.measure((x, y, width, height, pageX, pageY) => {
-              console.log("SWidth: ", SCREEN_WIDTH)
-                console.log("width: ", width)
-              console.log("pageX: ", pageX)
+            this.Marker.measure((x, y, width, height, pageX, pageY) => {
+              console.log('SWidth: ', SCREEN_WIDTH);
+              console.log('width: ', width);
+              console.log('pageX: ', pageX);
               this.setState({
                 x: pageX,
                 width: width,
