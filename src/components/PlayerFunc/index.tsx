@@ -17,15 +17,13 @@ type Props = {
 let playInterval: any;
 
 export default function Player(props: Props) {
-  const [isDownload, setIsDownload] = useState(true);
+  const [isDownload, setIsDownload] = useState(false);
   const [isPlay, setIsPlay] = useState(false);
   const [progress, setProgress] = useState({position: 0, duration: 0});
 
   useEffect(() => {
     console.log('mount');
   });
-  const [trackUrl, setTrackUrl] = useState('');
-  TrackPlayer.destroy();
 
   const Progress = () => {
     let progress: any;
@@ -108,9 +106,9 @@ export default function Player(props: Props) {
         });
       });
 
-      TrackPlayer.add(props.track).then(() => {
-        TrackPlayer.play();
-      });
+      TrackPlayer.add(props.track).then(() => {});
+
+      TrackPlayer.play();
 
       playInterval = setInterval(Progress, 1000);
 
