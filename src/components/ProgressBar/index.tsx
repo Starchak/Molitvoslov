@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 
 import {Image, PanResponder, View} from 'react-native';
 
+import TrackPlayer from 'react-native-track-player';
+
 import styles from './styles';
 import wave from '../../assets/img/wave.png';
 
@@ -25,6 +27,12 @@ class ProgressBar extends Component<Props, State> {
     x0: 0,
     seek: 0,
   };
+  seekTo = (pos: number) => {
+    TrackPlayer.play().then(
+      async () => await TrackPlayer.seekTo(Math.ceil(pos)),
+    );
+  };
+
   _panResponder = PanResponder.create({
     // Ask to be the responder:
     onStartShouldSetPanResponder: (evt, gestureState) => true,
@@ -36,12 +44,28 @@ class ProgressBar extends Component<Props, State> {
       this.setState({x0: gestureState.x0});
     },
     onPanResponderMove: (evt, gestureState) => {
-      this.setState({
-        seek: this.state.x0 - this.state.x + gestureState.dx || 0,
-      });
+      let seek = this.state.x0 - this.state.x + gestureState.dx;
+      if (seek < 0) {
+        this.setState({
+          seek: 0,
+        });
+      } else if (seek > this.state.width) {
+        this.setState({
+          seek: this.state.width,
+        });
+      } else {
+        this.setState({
+          seek: seek,
+        });
+      }
     },
     onPanResponderTerminationRequest: (evt, gestureState) => true,
     onPanResponderRelease: (evt, gestureState) => {
+      this.seekTo(
+        (this.props.progress.duration * this.state.seek) / this.state.width,
+      );
+      // TrackPlayer.pause();
+      // TrackPlayer.play();
     },
     onPanResponderTerminate: (evt, gestureState) => {
     },
@@ -51,7 +75,7 @@ class ProgressBar extends Component<Props, State> {
   });
 
   componentDidUpdate(): void {
-    // console.log(this.state)
+    console.log(this.props.progress, this.state);
   }
 
   render() {
@@ -69,8 +93,8 @@ class ProgressBar extends Component<Props, State> {
           style={[
             styles.play_bg,
             {
-              width: this.state.width * this.props.progress.position / this.props.progress.duration || 1,
-              backgroundColor: '#e5c077',
+              width: this.state.seek,
+              backgroundColor: '#0064fa',
             },
           ]}
         />
@@ -78,8 +102,10 @@ class ProgressBar extends Component<Props, State> {
           style={[
             styles.play_bg,
             {
-              width: this.state.seek,
-              backgroundColor: '#0064fa',
+              width:
+                (this.state.width * this.props.progress.position) /
+                (this.props.progress.duration || 1),
+              backgroundColor: '#e5c077',
             },
           ]}
         />

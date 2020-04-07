@@ -16,12 +16,13 @@ const prays = [
     img_active: img_1_active,
     id: '1',
     track: {
-      id: '1',
-      url: require('../../assets/audio/test.mp3'),
-      title: 'pray_1_title',
-      artwork: img_1_active,
-      artist: '',
-      duration: 468,
+      id: '2222',
+      url:
+        'https://drive.google.com/uc?export=download&id=1VM9_umeyzJn0v1pRzR1BSm9y3IhZ3c0E',
+      title: 'Soul Searching (Demo)',
+      artist: 'David Chavez',
+      artwork: 'https://picsum.photos/200',
+      duration: 60,
     },
   },
   {
