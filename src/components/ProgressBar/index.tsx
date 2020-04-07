@@ -28,6 +28,7 @@ class ProgressBar extends Component<Props, State> {
     x0: 0,
     seek: 0,
   };
+
   seekTo = (pos: number) => {
     this.props.SeekTo(Math.ceil(pos));
   };
@@ -61,11 +62,10 @@ class ProgressBar extends Component<Props, State> {
     },
     onPanResponderTerminationRequest: (evt, gestureState) => true,
     onPanResponderRelease: (evt, gestureState) => {
+      this.setState({seek: 0});
       this.seekTo(
         (this.props.progress.duration * this.state.seek) / this.state.width,
       );
-      // TrackPlayer.pause();
-      // TrackPlayer.play();
     },
     onPanResponderTerminate: (evt, gestureState) => {},
     onShouldBlockNativeResponder: (evt, gestureState) => {
@@ -95,8 +95,10 @@ class ProgressBar extends Component<Props, State> {
           style={[
             styles.play_bg,
             {
-              width: this.state.seek,
-              backgroundColor: '#0064fa',
+              width:
+                (this.state.width * this.props.progress.position) /
+                (this.props.progress.duration || 1),
+              backgroundColor: '#e5c077',
             },
           ]}
         />
@@ -104,10 +106,8 @@ class ProgressBar extends Component<Props, State> {
           style={[
             styles.play_bg,
             {
-              width:
-                (this.state.width * this.props.progress.position) /
-                (this.props.progress.duration || 1),
-              backgroundColor: '#e5c077',
+              width: this.state.seek,
+              backgroundColor: '#0064fa',
             },
           ]}
         />
