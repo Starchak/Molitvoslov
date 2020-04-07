@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 
 import {Image, ImageBackground, ScrollView, Text, View} from 'react-native';
+import {Player} from '..';
+
 import {translate} from '../../config/translate';
 
 import styles from './styles';
@@ -9,7 +11,6 @@ import header from '../../assets/img/pray_bg_1.png';
 import bg from '../../assets/img/bg_2.png';
 
 import {Size} from '../../config/typography';
-import Player from '../PlayerFunc';
 import {Track} from 'react-native-track-player';
 
 type Data = {
