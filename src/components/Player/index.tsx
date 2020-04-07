@@ -59,6 +59,7 @@ class Player extends Component<Props, State> {
       });
       console.log(this.props.url);
     });
+
     AsyncStorage.getItem(this.props.track.id + '_' + currentLang).then(
       (val) => {
         console.log(val);
@@ -127,12 +128,16 @@ class Player extends Component<Props, State> {
             });
           });
         });
-    }
-
-    if (this.state.isPlay) {
+    } else if (this.state.isPlay) {
       this.Pause(false);
     } else {
-      TrackPlayer.play();
+      TrackPlayer.play()
+        .then((el) => {
+          console.log(el);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
       playInterval = setInterval(this.Progress, 100);
       this.setState({isPlay: true});
       console.log(this.state);
