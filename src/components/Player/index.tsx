@@ -14,6 +14,7 @@ import RNFetchBlob from 'rn-fetch-blob';
 type Props = {
   track: Track;
   url: any;
+  durations: any;
 };
 
 type State = {
@@ -103,13 +104,19 @@ class Player extends Component<Props, State> {
         })
         .then((res) => {
           let path = res.path();
-          // console.log('The file saved to ', path);
-          AsyncStorage.setItem(this.props.track.id + '_' + currentLang, path);
-          this.setState({url: path, isDownloaded: true});
+          RNFetchBlob.fs.mv(path, path + '.mp3').then(() => {
+            path += '.mp3';
+            AsyncStorage.setItem(this.props.track.id + '_' + currentLang, path);
+            this.setState({url: path, isDownloaded: true});
 
-          TrackPlayer.add({...this.props.track, url: path}).then(() => {
-            TrackPlayer.getQueue().then((evt) => {
-              console.log(evt);
+            TrackPlayer.add({
+              ...this.props.track,
+              url: path,
+              duration: this.props.durations[currentLang],
+            }).then(() => {
+              TrackPlayer.getQueue().then((evt) => {
+                console.log(evt);
+              });
             });
           });
         });
@@ -121,7 +128,7 @@ class Player extends Component<Props, State> {
       TrackPlayer.play();
       playInterval = setInterval(this.Progress, 100);
       this.setState({isPlay: true});
-      console.log(this.state);
+      console.log(this.state, this.props.durations, 'Play');
     }
   }
 

@@ -22,6 +22,7 @@ type Data = {
   id: number;
   track: Track;
   url: object;
+  durations: any;
 };
 
 type Props = {
@@ -44,7 +45,7 @@ class PrayContent extends Component<Props, State> {
         <View style={styles.prays_content_container}>
           <Image source={bg} resizeMode={'contain'} style={styles.pray_bg} />
           {this.props.data.track ? (
-            <Player track={this.props.data.track} url={this.props.data.url} />
+            <Player track={this.props.data.track} url={this.props.data.url} durations={this.props.data.durations}/>
           ) : null}
           <ScrollView>
             <Text style={[styles.main, Size(18, 30)]}>

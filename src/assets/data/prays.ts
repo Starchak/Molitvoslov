@@ -20,13 +20,18 @@ const prays = [
       en: 'https://molitvoslov.app/audio/en_audio_1.mp3',
       ua: 'https://molitvoslov.app/audio/ua_audio_1.mp3',
     },
+    durations: {
+      ru: 32,
+      ua: 34,
+      en: 0,
+    },
     track: {
-      id: '2222',
-      title: 'Soul Searching (Demo)',
-      artist: 'David Chavez',
+      id: '1',
+      title: 'pray_1_title',
+      artist: '',
       url: '',
       artwork: 'https://picsum.photos/200',
-      duration: 60,
+      duration: 0,
     },
   },
   {
@@ -36,13 +41,23 @@ const prays = [
     img: img_2,
     img_active: img_2_active,
     id: '2',
+    url: {
+      ru: 'https://molitvoslov.app/audio/ru_audio_2.mp3',
+      en: 'https://molitvoslov.app/audio/en_audio_2.mp3',
+      ua: 'https://molitvoslov.app/audio/ua_audio_2.mp3',
+    },
+    durations: {
+      ru: 41,
+      ua: 40,
+      en: 0,
+    },
     track: {
       id: '2',
-      url: require('../../assets/audio/test.mp3'),
       title: 'pray_2_title',
-      artwork: img_2_active,
       artist: '',
-      duration: 60,
+      url: '',
+      artwork: 'https://picsum.photos/200',
+      duration: 0,
     },
   },
   {
@@ -52,13 +67,23 @@ const prays = [
     img: img_3,
     img_active: img_3_active,
     id: '3',
+    url: {
+      ru: 'https://molitvoslov.app/audio/ru_audio_3.mp3',
+      en: 'https://molitvoslov.app/audio/en_audio_3.mp3',
+      ua: 'https://molitvoslov.app/audio/ua_audio_3.mp3',
+    },
+    durations: {
+      ru: 108,
+      ua: 117,
+      en: 0,
+    },
     track: {
       id: '3',
-      url: require('../../assets/audio/test.mp3'),
       title: 'pray_3_title',
-      artwork: img_3_active,
       artist: '',
-      duration: 60,
+      url: '',
+      artwork: 'https://picsum.photos/200',
+      duration: 0,
     },
   },
   {
@@ -68,7 +93,24 @@ const prays = [
     img: img_4,
     img_active: img_4_active,
     id: '4',
-    track: null,
+    url: {
+      ru: 'https://molitvoslov.app/audio/ru_audio_4.mp3',
+      en: 'https://molitvoslov.app/audio/en_audio_4.mp3',
+      ua: 'https://molitvoslov.app/audio/ua_audio_4.mp3',
+    },
+    durations: {
+      ru: 157,
+      ua: 61,
+      en: 0,
+    },
+    track: {
+      id: '4',
+      title: 'pray_4_title',
+      artist: '',
+      url: '',
+      artwork: 'https://picsum.photos/200',
+      duration: 0,
+    },
   },
 ];
 
