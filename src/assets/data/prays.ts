@@ -31,7 +31,6 @@ const prays = [
       artist: '',
       url: '',
       artwork: 'https://picsum.photos/200',
-      duration: 0,
     },
   },
   {
@@ -57,7 +56,6 @@ const prays = [
       artist: '',
       url: '',
       artwork: 'https://picsum.photos/200',
-      duration: 0,
     },
   },
   {
@@ -83,7 +81,6 @@ const prays = [
       artist: '',
       url: '',
       artwork: 'https://picsum.photos/200',
-      duration: 0,
     },
   },
   {
@@ -109,7 +106,6 @@ const prays = [
       artist: '',
       url: '',
       artwork: 'https://picsum.photos/200',
-      duration: 0,
     },
   },
 ];

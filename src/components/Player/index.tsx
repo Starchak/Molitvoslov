@@ -128,7 +128,7 @@ class Player extends Component<Props, State> {
       TrackPlayer.play();
       playInterval = setInterval(this.Progress, 100);
       this.setState({isPlay: true});
-      console.log(this.state, this.props.durations, 'Play');
+      console.log(this.state, this.props.durations[currentLang], 'Play');
     }
   }
 
