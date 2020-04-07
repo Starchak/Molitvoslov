@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {Component} from 'react';
 
-import {Image, PanResponder, View} from 'react-native';
+import {Image, PanResponder, View, Dimensions} from 'react-native';
+
+const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
 import TrackPlayer from 'react-native-track-player';
 
@@ -10,6 +12,7 @@ import wave from '../../assets/img/wave.png';
 
 type Props = {
   progress: any;
+  SeekTo: any;
 };
 type State = {
   x: number;
@@ -28,9 +31,8 @@ class ProgressBar extends Component<Props, State> {
     seek: 0,
   };
   seekTo = (pos: number) => {
-    TrackPlayer.play().then(
-      async () => await TrackPlayer.seekTo(Math.ceil(pos)),
-    );
+    console.log('pB: ', pos)
+    this.props.SeekTo(Math.ceil(pos))
   };
 
   _panResponder = PanResponder.create({
@@ -44,7 +46,11 @@ class ProgressBar extends Component<Props, State> {
       this.setState({x0: gestureState.x0});
     },
     onPanResponderMove: (evt, gestureState) => {
+      console.log("x0: ", this.state.x0);
+      console.log("x: ", this.state.x)
+      console.log("dX: ", gestureState.dx)
       let seek = this.state.x0 - this.state.x + gestureState.dx;
+      console.log("seek: ", seek)
       if (seek < 0) {
         this.setState({
           seek: 0,
@@ -75,7 +81,7 @@ class ProgressBar extends Component<Props, State> {
   });
 
   componentDidUpdate(): void {
-    console.log(this.props.progress, this.state);
+    // console.log(this.props.progress, this.state);
   }
 
   render() {
@@ -108,6 +114,9 @@ class ProgressBar extends Component<Props, State> {
               backgroundColor: '#e5c077',
             },
           ]}
+          onLayout={({nativeEvent}) => {
+            console.log("1: ", nativeEvent)
+          }}
         />
 
         <Image
@@ -115,7 +124,11 @@ class ProgressBar extends Component<Props, State> {
           {...this._panResponder.panHandlers}
           ref="Marker"
           onLayout={({nativeEvent}) => {
+            console.log(nativeEvent);
             this.refs.Marker.measure((x, y, width, height, pageX, pageY) => {
+              console.log("SWidth: ", SCREEN_WIDTH)
+                console.log("width: ", width)
+              console.log("pageX: ", pageX)
               this.setState({
                 x: pageX,
                 width: width,
