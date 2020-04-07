@@ -20,39 +20,55 @@ export default function Player(props: Props) {
   });
 
   TrackPlayer.destroy();
-  TrackPlayer.setupPlayer().then(() => {
-    // The player is ready to be used
-  });
-  TrackPlayer.updateOptions({
-    capabilities: [
-      Capability.Play,
-      Capability.Pause,
-      Capability.Stop,
-      Capability.SeekTo,
-    ],
-    icon: require('../../assets/img/pray.png'),
-  });
-
-  TrackPlayer.add(props.track).then(() => {
-    console.log('Play');
-    TrackPlayer.play();
-  });
 
   const Progress = () => {
     let progress = useProgress();
     return <ProgressBar SeekTo={SeekTo} progress={progress} />;
   };
 
-  const SeekTo = (pos: number) => {
-    console.log(pos);
-    TrackPlayer.seekTo(pos);
-  };
+  async function SeekTo(pos: number) {
+    TrackPlayer.getPosition().then((position) => {
+      console.log(position);
+      TrackPlayer.seekTo(10).then((p) => {
+        console.log(p);
+      });
+    });
+  }
+
+  async function PlayPause() {
+    TrackPlayer.destroy();
+    TrackPlayer.setupPlayer().then(() => {
+      TrackPlayer.updateOptions({
+        capabilities: [
+          Capability.Play,
+          Capability.Pause,
+          Capability.Stop,
+          Capability.SeekTo,
+        ],
+        compactCapabilities: [
+          Capability.Play,
+          Capability.Pause,
+          Capability.Stop,
+          Capability.SeekTo,
+        ],
+        notificationCapabilities: [
+          Capability.Play,
+          Capability.Pause,
+          Capability.Stop,
+          Capability.SeekTo,
+        ],
+        icon: require('../../assets/img/pray.png'),
+      });
+    });
+
+    TrackPlayer.add(props.track).then(() => {
+      TrackPlayer.play();
+    });
+  }
 
   return (
     <View style={styles.player}>
-      <TouchableHighlight
-        style={styles.play}
-        onPress={() => TrackPlayer.seekTo(10)}>
+      <TouchableHighlight style={styles.play} onPress={() => PlayPause()}>
         <Image style={styles.play_img} source={pause} />
       </TouchableHighlight>
       <Progress SeekTo={SeekTo} />
