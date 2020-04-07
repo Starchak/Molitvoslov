@@ -109,7 +109,6 @@ class Player extends Component<Props, State> {
             path += '.mp3';
             AsyncStorage.setItem(this.props.track.id + '_' + currentLang, path);
             this.setState({url: path, isDownloaded: true});
-
             TrackPlayer.add({
               ...this.props.track,
               url: path,
