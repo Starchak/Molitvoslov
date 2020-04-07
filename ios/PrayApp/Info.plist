@@ -38,7 +38,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>BaskervilleCyrillic-Bold.ttf</string>
@@ -46,6 +46,10 @@
 		<string>Lato-Light.ttf</string>
 		<string>Lato-Regular.ttf</string>
 		<string>Lato-Semibold.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
