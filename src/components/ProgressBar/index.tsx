@@ -5,8 +5,6 @@ import {Image, PanResponder, View, Dimensions} from 'react-native';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
-import TrackPlayer from 'react-native-track-player';
-
 import styles from './styles';
 import wave from '../../assets/img/wave.png';
 
@@ -31,7 +29,6 @@ class ProgressBar extends Component<Props, State> {
     seek: 0,
   };
   seekTo = (pos: number) => {
-    console.log('pB: ', pos);
     this.props.SeekTo(Math.ceil(pos));
   };
 
@@ -46,9 +43,6 @@ class ProgressBar extends Component<Props, State> {
       this.setState({x0: gestureState.x0});
     },
     onPanResponderMove: (evt, gestureState) => {
-      console.log('x0: ', this.state.x0);
-      console.log('x: ', this.state.x);
-      console.log('dX: ', gestureState.dx);
       let seek = this.state.x0 - this.state.x + gestureState.dx;
       console.log('seek: ', seek);
       if (seek < 0) {
@@ -125,9 +119,9 @@ class ProgressBar extends Component<Props, State> {
           onLayout={({nativeEvent}) => {
             console.log(nativeEvent);
             this.Marker.measure((x, y, width, height, pageX, pageY) => {
-              console.log('SWidth: ', SCREEN_WIDTH);
-              console.log('width: ', width);
-              console.log('pageX: ', pageX);
+              if (pageX > SCREEN_WIDTH) {
+                pageX = pageX - SCREEN_WIDTH;
+              }
               this.setState({
                 x: pageX,
                 width: width,
