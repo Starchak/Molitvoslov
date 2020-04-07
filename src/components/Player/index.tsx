@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TrackPlayer, {Capability, Track} from 'react-native-track-player';
+import TrackPlayer, {Track} from 'react-native-track-player';
 
 import {AsyncStorage, Image, TouchableOpacity, View} from 'react-native';
 import {ProgressBar} from '../ProgressBar';
@@ -37,24 +37,6 @@ class Player extends Component<Props, State> {
     console.log('test');
     TrackPlayer.setupPlayer().then(() => {
       TrackPlayer.updateOptions({
-        capabilities: [
-          Capability.Play,
-          Capability.Pause,
-          Capability.Stop,
-          Capability.SeekTo,
-        ],
-        compactCapabilities: [
-          Capability.Play,
-          Capability.Pause,
-          Capability.Stop,
-          Capability.SeekTo,
-        ],
-        notificationCapabilities: [
-          Capability.Play,
-          Capability.Pause,
-          Capability.Stop,
-          Capability.SeekTo,
-        ],
         icon: require('../../assets/img/pray.png'),
       });
       console.log(this.props.url);
@@ -88,7 +70,9 @@ class Player extends Component<Props, State> {
 
   Progress = () => {
     let progress: any;
-
+    TrackPlayer.getState().then((evt) => {
+      console.log(evt);
+    });
     TrackPlayer.getPosition().then((position) => {
       progress = {position: position, duration: this.props.track.duration};
       if (position >= progress.duration) {
@@ -114,7 +98,9 @@ class Player extends Component<Props, State> {
       RNFetchBlob.config({
         fileCache: true,
       })
-        .fetch('GET', this.props.url[currentLang], {})
+        .fetch('GET', this.props.url[currentLang], {
+          'Content-Type': 'audio/mpeg',
+        })
         .then((res) => {
           let path = res.path();
           // console.log('The file saved to ', path);
