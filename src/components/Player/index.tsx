@@ -34,7 +34,6 @@ class Player extends Component<Props, State> {
   };
 
   componentDidMount(): void {
-    console.log('test');
     TrackPlayer.setupPlayer().then(() => {
       TrackPlayer.updateOptions({
         icon: require('../../assets/img/pray.png'),
@@ -67,9 +66,13 @@ class Player extends Component<Props, State> {
 
   componentWillUnmount(): void {
     TrackPlayer.destroy();
+    clearInterval(playInterval);
   }
 
   Progress = () => {
+    TrackPlayer.getState().then((evt) => {
+      console.log(evt);
+    });
     let progress: any;
     TrackPlayer.getState().then((evt) => {
       console.log(evt);
@@ -86,10 +89,7 @@ class Player extends Component<Props, State> {
 
   SeekTo(pos: number) {
     TrackPlayer.getPosition().then((position) => {
-      console.log(position);
-      TrackPlayer.seekTo(pos).then((p) => {
-        console.log(p);
-      });
+      TrackPlayer.seekTo(pos).then((p) => {});
     });
   }
 
