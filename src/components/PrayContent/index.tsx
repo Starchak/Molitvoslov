@@ -20,6 +20,7 @@ type Data = {
   img_active: any;
   id: number;
   track: Track;
+  url: object;
 };
 
 type Props = {
@@ -42,7 +43,7 @@ class PrayContent extends Component<Props, State> {
         <View style={styles.prays_content_container}>
           <Image source={bg} resizeMode={'contain'} style={styles.pray_bg} />
           {this.props.data.track ? (
-            <Player track={this.props.data.track} />
+            <Player track={this.props.data.track} url={this.props.data.url} />
           ) : null}
           <ScrollView>
             <Text style={[styles.main, Size(18, 30)]}>

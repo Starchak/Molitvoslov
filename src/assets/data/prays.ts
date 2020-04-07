@@ -15,12 +15,16 @@ const prays = [
     img: img_1,
     img_active: img_1_active,
     id: '1',
+    url: {
+      ru: 'https://molitvoslov.app/audio/ru_audio_1.mp3',
+      en: 'https://molitvoslov.app/audio/en_audio_1.mp3',
+      ua: 'https://molitvoslov.app/audio/ua_audio_1.mp3',
+    },
     track: {
       id: '2222',
-      url:
-        'https://drive.google.com/uc?export=download&id=1VM9_umeyzJn0v1pRzR1BSm9y3IhZ3c0E',
       title: 'Soul Searching (Demo)',
       artist: 'David Chavez',
+      url: '',
       artwork: 'https://picsum.photos/200',
       duration: 60,
     },

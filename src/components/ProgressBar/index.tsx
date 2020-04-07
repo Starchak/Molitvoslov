@@ -44,7 +44,6 @@ class ProgressBar extends Component<Props, State> {
     },
     onPanResponderMove: (evt, gestureState) => {
       let seek = this.state.x0 - this.state.x + gestureState.dx;
-      console.log('seek: ', seek);
       if (seek < 0) {
         this.setState({
           seek: 0,
@@ -79,10 +78,7 @@ class ProgressBar extends Component<Props, State> {
 
   render() {
     return (
-      <View
-        onLayout={({nativeEvent}) => {
-          console.log('1: ', nativeEvent);
-        }}>
+      <View>
         <View
           style={[
             styles.play_bg,
@@ -117,7 +113,6 @@ class ProgressBar extends Component<Props, State> {
           {...this._panResponder.panHandlers}
           ref={(ref) => (this.Marker = ref)}
           onLayout={({nativeEvent}) => {
-            console.log(nativeEvent);
             this.Marker.measure((x, y, width, height, pageX, pageY) => {
               if (pageX > SCREEN_WIDTH) {
                 pageX = pageX - SCREEN_WIDTH;
