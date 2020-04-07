@@ -91,10 +91,11 @@ class Player extends Component<Props, State> {
 
     TrackPlayer.getPosition().then((position) => {
       progress = {position: position, duration: this.props.track.duration};
-      this.setState({progress});
-      if (position >= progress.duration - 0.8) {
+      if (position >= progress.duration) {
+        progress.position = this.props.track.duration;
         this.Pause(true);
       }
+      this.setState({progress});
     });
   };
 
@@ -132,7 +133,7 @@ class Player extends Component<Props, State> {
       this.Pause(false);
     } else {
       TrackPlayer.play();
-      playInterval = setInterval(this.Progress, 1000);
+      playInterval = setInterval(this.Progress, 100);
       this.setState({isPlay: true});
       console.log(this.state);
     }
