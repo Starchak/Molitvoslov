@@ -1,6 +1,6 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 
-const {height: SCREEN_HEIGHT} = Dimensions.get('window');
+const {height: SCREEN_HEIGHT, width: SCREEN_WIDTH} = Dimensions.get('window');
 
 export default StyleSheet.create({
   prays_content: {
@@ -24,5 +24,24 @@ export default StyleSheet.create({
     resizeMode: 'contain',
     position: 'absolute',
     top: -20,
+  },
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 35,
+    marginTop: 45,
+  },
+  title: {
+    width: 'auto',
+    textShadowColor: 'rgba(0, 0, 0, 0.54)',
+    textShadowOffset: {width: 1, height: 2},
+    textShadowRadius: 2,
+    color: '#ffffff',
+    fontFamily: 'BaskervilleCyrillic-Bold',
+    letterSpacing: 1.5,
+    fontSize: 30,
+  },
+  ornament: {
+    width: SCREEN_WIDTH * 0.9,
   },
 });

@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {Image, ImageBackground, ScrollView, Text, View} from 'react-native';
 import {Player} from '..';
 
-import {translate} from '../../config/translate';
+import {currentLang, translate} from '../../config/translate';
 
 import styles from './styles';
 // Icons
@@ -12,8 +12,6 @@ import bg from '../../assets/img/bg_2.png';
 
 import {Size} from '../../config/typography';
 import {Track} from 'react-native-track-player';
-
-import {currentLang} from '../../config/translate';
 
 type Data = {
   title: string;
@@ -39,9 +37,6 @@ class PrayContent extends Component<Props, State> {
         <ImageBackground source={header} style={styles.prays_content_bg}>
           <Text style={[styles.title, Size(20)]}>
             {translate(this.props.data.title)}
-          </Text>
-          <Text style={[styles.sub_title, Size(12)]}>
-            {translate(this.props.data.sub_title)}
           </Text>
         </ImageBackground>
         <View style={styles.prays_content_container}>

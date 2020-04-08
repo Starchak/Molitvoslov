@@ -34,7 +34,11 @@ class PrayScreen extends Component<Props, State> {
   render() {
     return (
       <>
-        <StatusBar barStyle="light-content" />
+        <StatusBar
+          backgroundColor="transparent"
+          translucent
+          barStyle="light-content"
+        />
         <SafeAreaView
           style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
           <PrayContent data={this.props.route.params.data}/>

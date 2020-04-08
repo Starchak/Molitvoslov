@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import {View, Text, TouchableOpacity, Animated, Dimensions} from 'react-native';
-import {translate, currentLang} from '../../config/translate';
+import {Animated, Dimensions, Text, TouchableOpacity, View} from 'react-native';
+import {currentLang, translate} from '../../config/translate';
 import {currentSize, Size} from '../../config/typography';
 
 import styles from './styles';
@@ -25,6 +25,7 @@ class Settings extends Component<Props, State> {
   };
   changeLang = (lang: string) => {
     this.props.changeLang(lang);
+    this.props.togleSettings();
   };
 
   changeFontSize = (size: string) => {
