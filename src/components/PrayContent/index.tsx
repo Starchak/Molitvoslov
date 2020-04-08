@@ -13,6 +13,8 @@ import bg from '../../assets/img/bg_2.png';
 import {Size} from '../../config/typography';
 import {Track} from 'react-native-track-player';
 
+import {currentLang} from '../../config/translate';
+
 type Data = {
   title: string;
   sub_title: string;
@@ -45,7 +47,11 @@ class PrayContent extends Component<Props, State> {
         <View style={styles.prays_content_container}>
           <Image source={bg} resizeMode={'contain'} style={styles.pray_bg} />
           {this.props.data.track ? (
-            <Player track={this.props.data.track} url={this.props.data.url} durations={this.props.data.durations}/>
+            <Player
+              track={this.props.data.track}
+              url={this.props.data.url}
+              durations={this.props.data.durations[currentLang]}
+            />
           ) : null}
           <ScrollView>
             <Text style={[styles.main, Size(18, 30)]}>

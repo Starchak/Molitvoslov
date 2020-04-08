@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import TrackPlayer, {Track} from 'react-native-track-player';
 
-import {AsyncStorage, Image, TouchableOpacity, View} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import {ProgressBar} from '../ProgressBar';
 
 import styles from '../Player/styles';
@@ -35,6 +36,7 @@ class Player extends Component<Props, State> {
   };
 
   componentDidMount(): void {
+    console.log('mount 11');
     TrackPlayer.setupPlayer().then(() => {
       TrackPlayer.updateOptions({
         icon: require('../../assets/img/pray.png'),
@@ -73,22 +75,23 @@ class Player extends Component<Props, State> {
   }
 
   componentWillUnmount(): void {
+    this.Pause(true);
     TrackPlayer.destroy();
     clearInterval(playInterval);
   }
 
   Progress = () => {
     TrackPlayer.getState().then((evt) => {
-      console.log(evt);
+      // console.log(evt);
     });
     let progress: any;
     TrackPlayer.getPosition().then((position) => {
       progress = {
         position: position,
-        duration: this.props.durations[currentLang],
+        duration: this.props.durations,
       };
       if (position >= progress.duration) {
-        progress.position = this.props.track.duration;
+        progress.position = progress.duration;
         this.Pause(true);
       }
       this.setState({progress});
@@ -118,7 +121,7 @@ class Player extends Component<Props, State> {
             this.setState({url: path, isDownloaded: true});
             TrackPlayer.add({
               ...this.props.track,
-              url: path,
+              url: 'file://' + path,
               duration: this.props.durations[currentLang],
             });
           });
