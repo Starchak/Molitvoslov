@@ -8,7 +8,7 @@ import styles from '../Player/styles';
 import play_img from '../../assets/img/play_active.png';
 import download_img from '../../assets/img/play.png';
 import pause_img from '../../assets/img/pause.png';
-import {currentLang} from '../../config/translate';
+import {currentLang, translate} from '../../config/translate';
 import RNFetchBlob from 'rn-fetch-blob';
 
 type Props = {
@@ -50,10 +50,14 @@ class Player extends Component<Props, State> {
           RNFetchBlob.fs.exists(val).then((exist) => {
             // console.log(`file ${exist ? '' : 'not'} exists`);
             if (exist) {
-              this.setState({url: val, isDownloaded: true});
+              this.setState({
+                url: val,
+                isDownloaded: true,
+              });
               TrackPlayer.add({
                 ...this.props.track,
-                url: 'file://Users/starchak/1.mp3',
+                title: translate(this.props.track.title),
+                url: 'file://' + val,
               }).then(() => {
                 TrackPlayer.getQueue().then((evt) => {
                   console.log(evt);
@@ -78,11 +82,11 @@ class Player extends Component<Props, State> {
       console.log(evt);
     });
     let progress: any;
-    TrackPlayer.getState().then((evt) => {
-      console.log(evt);
-    });
     TrackPlayer.getPosition().then((position) => {
-      progress = {position: position, duration: this.props.track.duration};
+      progress = {
+        position: position,
+        duration: this.props.durations[currentLang],
+      };
       if (position >= progress.duration) {
         progress.position = this.props.track.duration;
         this.Pause(true);
@@ -116,10 +120,6 @@ class Player extends Component<Props, State> {
               ...this.props.track,
               url: path,
               duration: this.props.durations[currentLang],
-            }).then(() => {
-              TrackPlayer.getQueue().then((evt) => {
-                console.log(evt);
-              });
             });
           });
         });
