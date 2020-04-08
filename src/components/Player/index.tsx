@@ -51,7 +51,10 @@ class Player extends Component<Props, State> {
             // console.log(`file ${exist ? '' : 'not'} exists`);
             if (exist) {
               this.setState({url: val, isDownloaded: true});
-              TrackPlayer.add({...this.props.track, url: val}).then(() => {
+              TrackPlayer.add({
+                ...this.props.track,
+                url: 'file://Users/starchak/1.mp3',
+              }).then(() => {
                 TrackPlayer.getQueue().then((evt) => {
                   console.log(evt);
                 });
