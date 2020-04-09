@@ -1,4 +1,5 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
+import {ifIphoneX} from 'react-native-iphone-x-helper';
 
 export default StyleSheet.create({
   prays_content: {
@@ -24,10 +25,18 @@ export default StyleSheet.create({
     width: '102%',
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 190,
     alignSelf: 'center',
     resizeMode: 'contain',
-    top: -10,
+    ...ifIphoneX(
+      {
+        minHeight: 250,
+        top: Platform.OS === 'ios' ? -45 : -10,
+      },
+      {
+        minHeight: 190,
+        top: Platform.OS === 'ios' ? -18 : -10,
+      },
+    ),
   },
   title: {
     color: '#ffffff',

@@ -19,11 +19,10 @@ export default StyleSheet.create({
     paddingTop: 25,
   },
   prays_content_bg: {
-    height: SCREEN_HEIGHT,
+    height: SCREEN_HEIGHT + 25,
     alignSelf: 'center',
     resizeMode: 'contain',
     position: 'absolute',
-    top: -20,
   },
   container: {
     alignItems: 'center',
