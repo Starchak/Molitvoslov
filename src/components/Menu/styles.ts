@@ -4,7 +4,7 @@ import Colors from '../../config/colors';
 export default StyleSheet.create({
   menu_container: {
     position: 'absolute',
-    bottom: 0,
+    bottom: -5,
     width: '100%',
     height: 75,
     flexDirection: 'row',
