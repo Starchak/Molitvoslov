@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 
-import {View} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
+import {Menu} from '../components';
+
+import {changeSize} from '../config/typography';
 
 type Props = {
   navigation: any;
@@ -8,8 +11,36 @@ type Props = {
 };
 
 class Contact extends Component<Props> {
+  changeLang = (lang: string) => {
+    this.props.route.params.handleLocalizationChange(lang);
+    this.forceUpdate();
+  };
+
+  changeFontSize = (size: string) => {
+    changeSize(size);
+    this.forceUpdate();
+  };
+
   render() {
-    return <View/>;
+    return (
+      <>
+        <StatusBar
+          backgroundColor="transparent"
+          translucent
+          barStyle="dark-content"
+        />
+
+        <SafeAreaView
+          style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+          <Menu
+            routeName={this.props.route.name}
+            navigation={this.props.navigation}
+            changeLang={this.changeLang}
+            changeFontSize={this.changeFontSize}
+          />
+        </SafeAreaView>
+      </>
+    );
   }
 }
 

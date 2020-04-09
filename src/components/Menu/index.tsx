@@ -30,6 +30,7 @@ type Props = {
 type State = {
   praysActive: boolean;
   openSettings: boolean;
+  contactActive: boolean;
   show: boolean;
 };
 
@@ -37,18 +38,27 @@ class Menu extends Component<Props, State> {
   state = {
     openSettings: false,
     praysActive: false,
+    contactActive: false,
     show: false,
   };
 
   componentDidMount() {
     if (this.props.routeName === 'Prays') {
       this.setState({praysActive: true});
+    } else if (this.props.routeName === 'Contact') {
+      this.setState({contactActive: true});
     }
   }
 
   navigateToPrays = () => {
     if (this.props.routeName !== 'Prays') {
       this.props.navigation.navigate('Prays', {fix: ['fix']});
+    }
+  };
+
+  navigateToContact = () => {
+    if (this.props.routeName !== 'Contact') {
+      this.props.navigation.navigate('Contact', {fix: ['fix']});
     }
   };
 
@@ -112,6 +122,23 @@ class Menu extends Component<Props, State> {
                   : [styles.menu_text, Size(12)]
               }>
               {translate('settings')}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.menu_btn, {marginLeft: 26}]}
+            onPress={this.navigateToContact}>
+            {this.state.contactActive ? (
+              <Image style={styles.menu_pray_icon} source={pray_active_img} />
+            ) : (
+              <Image style={styles.menu_pray_icon} source={pray_img} />
+            )}
+            <Text
+              style={
+                this.state.contactActive
+                  ? [styles.menu_text, styles.menu_text_active, Size(12)]
+                  : [styles.menu_text, Size(12)]
+              }>
+              {translate('contact')}
             </Text>
           </TouchableOpacity>
         </View>
