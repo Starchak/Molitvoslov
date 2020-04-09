@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TrackPlayer, {Track} from 'react-native-track-player';
+import TrackPlayer, {Track, Capability} from 'react-native-track-player';
 
 import {Image, TouchableOpacity, View} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -40,6 +40,7 @@ class Player extends Component<Props, State> {
     TrackPlayer.setupPlayer().then(() => {
       TrackPlayer.updateOptions({
         icon: require('../../assets/img/pray.png'),
+        capabilities: [Capability.Play, Capability.Pause, Capability.Stop],
       });
       console.log(this.props.url);
     });
@@ -82,7 +83,15 @@ class Player extends Component<Props, State> {
 
   Progress = () => {
     TrackPlayer.getState().then((evt) => {
-      // console.log(evt);
+      if (evt.toString() === 'playing') {
+        if (!this.state.isPlay) {
+          this.setState({isPlay: true});
+        }
+      } else {
+        if (this.state.isPlay) {
+          this.Pause(false);
+        }
+      }
     });
     let progress: any;
     TrackPlayer.getPosition().then((position) => {

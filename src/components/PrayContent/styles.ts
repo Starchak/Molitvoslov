@@ -33,8 +33,8 @@ export default StyleSheet.create({
         top: Platform.OS === 'ios' ? -45 : -10,
       },
       {
-        minHeight: 190,
-        top: Platform.OS === 'ios' ? -18 : -10,
+        minHeight: 200,
+        top: Platform.OS === 'ios' ? -20 : -10,
       },
     ),
   },
