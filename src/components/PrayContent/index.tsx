@@ -38,9 +38,12 @@ class PrayContent extends Component<Props, State> {
           <Text style={[styles.title, Size(20)]}>
             {translate(this.props.data.title)}
           </Text>
+          <Text style={[styles.sub_title, Size(12)]}>
+            {translate(this.props.data.sub_title)}
+          </Text>
         </ImageBackground>
         <View style={styles.prays_content_container}>
-          <Image source={bg} resizeMode={'contain'} style={styles.pray_bg} />
+          <Image source={bg} resizeMode={'contain'} style={styles.pray_bg}/>
           {this.props.data.track ? (
             <Player
               track={this.props.data.track}
