@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TrackPlayer, {Track, Capability} from 'react-native-track-player';
+import TrackPlayer, {Capability, Track} from 'react-native-track-player';
 
 import {Image, TouchableOpacity, View} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -7,7 +7,7 @@ import {ProgressBar} from '../ProgressBar';
 
 import styles from '../Player/styles';
 import play_img from '../../assets/img/play_active.png';
-import download_img from '../../assets/img/play.png';
+import download_img from '../../assets/img/download.png';
 import pause_img from '../../assets/img/pause.png';
 import {currentLang, translate} from '../../config/translate';
 import RNFetchBlob from 'rn-fetch-blob';
@@ -23,6 +23,7 @@ type State = {
   isPlay: boolean;
   progress: any;
   url: string;
+  downloading: boolean;
 };
 
 let playInterval: any;
@@ -83,15 +84,15 @@ class Player extends Component<Props, State> {
 
   Progress = () => {
     TrackPlayer.getState().then((evt) => {
-      if (evt.toString() === 'playing') {
-        if (!this.state.isPlay) {
-          this.setState({isPlay: true});
-        }
-      } else {
-        if (this.state.isPlay) {
-          this.Pause(false);
-        }
-      }
+      // if (evt.toString() === 'playing') {
+      //   if (!this.state.isPlay) {
+      //     this.setState({isPlay: true});
+      //   }
+      // } else {
+      //   if (this.state.isPlay) {
+      //     this.Pause(false);
+      //   }
+      // }
     });
     let progress: any;
     TrackPlayer.getPosition().then((position) => {
@@ -116,18 +117,21 @@ class Player extends Component<Props, State> {
   PlayPause() {
     if (!this.state.isDownloaded) {
       // Vlad write code for download here
+      this.setState({downloading: true});
       RNFetchBlob.config({
         fileCache: true,
       })
         .fetch('GET', this.props.url[currentLang], {
           'Content-Type': 'audio/mpeg',
         })
+        .progress(() => {
+        })
         .then((res) => {
           let path = res.path();
           RNFetchBlob.fs.mv(path, path + '.mp3').then(() => {
             path += '.mp3';
             AsyncStorage.setItem(this.props.track.id + '_' + currentLang, path);
-            this.setState({url: path, isDownloaded: true});
+            this.setState({url: path, isDownloaded: true, downloading: false});
             TrackPlayer.add({
               ...this.props.track,
               url: 'file://' + path,
@@ -166,7 +170,13 @@ class Player extends Component<Props, State> {
       <View style={styles.player}>
         <TouchableOpacity style={styles.play} onPress={() => this.PlayPause()}>
           {!this.state.isDownloaded ? (
-            <Image style={styles.play_img} source={download_img} />
+            <Image
+              style={[
+                styles.play_img,
+                {tintColor: this.state.downloading ? '#aaaaaa' : '#000000'},
+              ]}
+              source={download_img}
+            />
           ) : this.state.isPlay ? (
             <Image style={styles.play_img} source={pause_img} />
           ) : (

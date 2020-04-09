@@ -12,6 +12,7 @@ import InitialScreen from './screens/InitialScreen';
 import PraysScreen from './screens/PraysScreen';
 import PrayScreen from './screens/PrayScreen';
 import {navigationRef} from './config/nav';
+import Contact from './screens/Contact';
 
 const Stack = createStackNavigator();
 
@@ -60,6 +61,13 @@ class App extends Component<Props, State> {
           <Stack.Screen
             name="Pray"
             component={PrayScreen}
+            initialParams={{
+              handleLocalizationChange: this.handleLocalizationChange,
+            }}
+          />
+          <Stack.Screen
+            name="Contact"
+            component={Contact}
             initialParams={{
               handleLocalizationChange: this.handleLocalizationChange,
             }}
