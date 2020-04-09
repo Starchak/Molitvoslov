@@ -48,7 +48,7 @@ class Menu extends Component<Props, State> {
 
   navigateToPrays = () => {
     if (this.props.routeName !== 'Prays') {
-      this.props.navigation.navigate('Prays');
+      this.props.navigation.navigate('Prays', {fix: ['fix']});
     }
   };
 
