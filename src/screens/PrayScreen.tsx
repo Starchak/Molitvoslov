@@ -41,7 +41,7 @@ class PrayScreen extends Component<Props, State> {
         />
         <SafeAreaView
           style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <PrayContent data={this.props.route.params.data}/>
+          <PrayContent data={this.props.route.params.data} />
           <Menu
             routeName={this.props.route.name}
             navigation={this.props.navigation}

@@ -5,8 +5,6 @@ import {Menu, PraysContent} from '../components';
 
 import {changeSize} from '../config/typography';
 
-// import {translate} from '../config/translate';
-
 type Props = {
   route: any;
   navigation: any;
@@ -38,7 +36,7 @@ class PraysScreen extends Component<Props, State> {
 
         <SafeAreaView
           style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <PraysContent/>
+          <PraysContent />
           <Menu
             routeName={this.props.route.name}
             navigation={this.props.navigation}
