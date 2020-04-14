@@ -3,9 +3,8 @@ import React, {Component} from 'react';
 import {Image, Text, TouchableWithoutFeedback, View} from 'react-native';
 
 import styles from './styles';
-import {Size} from '../../config/typography';
 import {navigate} from '../../config/nav';
-import {translate} from "../../config/translate";
+import {translate} from '../../config/translate';
 
 type data = {
   title: string;
@@ -43,7 +42,7 @@ class PrayButton extends Component<Props, State> {
             }
             style={styles.pray_btn_img}
           />
-          <Text style={[styles.pray_btn_text, Size(20)]}>
+          <Text style={styles.pray_btn_text}>
             {translate(this.props.data.title)}
           </Text>
         </View>

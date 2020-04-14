@@ -1,6 +1,7 @@
 import {Dimensions, StyleSheet} from 'react-native';
 
 const {height: SCREEN_HEIGHT, width: SCREEN_WIDTH} = Dimensions.get('window');
+const ratio = SCREEN_WIDTH / SCREEN_HEIGHT;
 
 export default StyleSheet.create({
   prays_content: {
@@ -15,20 +16,19 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     position: 'relative',
     top: 15,
-    paddingHorizontal: 10,
     paddingTop: 25,
   },
   prays_content_bg: {
     height: SCREEN_HEIGHT + 25,
     alignSelf: 'center',
-    resizeMode: 'contain',
+    resizeMode: 'cover',
     position: 'absolute',
   },
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 35,
-    marginTop: 45,
+    marginBottom: ratio > 0.5 ? 10 : 35,
+    marginTop: ratio > 0.5 ? 5 : 45,
   },
   title: {
     width: 'auto',

@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 
-import {View, Text, TouchableOpacity, Image} from 'react-native';
-import {Size} from '../../config/typography';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {translate} from '../../config/translate';
 
-import {Settings, Overlay} from '..';
+import {Overlay, Settings} from '..';
 
 import styles from './styles';
-
 // Icons
 import bottom_shape_img from '../../assets/img/bottom_shape.png';
 
@@ -98,8 +96,8 @@ class Menu extends Component<Props, State> {
             <Text
               style={
                 this.state.praysActive
-                  ? [styles.menu_text, styles.menu_text_active, Size(12)]
-                  : [styles.menu_text, Size(12)]
+                  ? [styles.menu_text, styles.menu_text_active]
+                  : styles.menu_text
               }>
               {translate('prays')}
             </Text>
@@ -118,8 +116,8 @@ class Menu extends Component<Props, State> {
             <Text
               style={
                 this.state.show
-                  ? [styles.menu_text, styles.menu_text_active, Size(12)]
-                  : [styles.menu_text, Size(12)]
+                  ? [styles.menu_text, styles.menu_text_active]
+                  : styles.menu_text
               }>
               {translate('settings')}
             </Text>
@@ -135,8 +133,8 @@ class Menu extends Component<Props, State> {
             <Text
               style={
                 this.state.contactActive
-                  ? [styles.menu_text, styles.menu_text_active, Size(12)]
-                  : [styles.menu_text, Size(12)]
+                  ? [styles.menu_text, styles.menu_text_active]
+                  : styles.menu_text
               }>
               {translate('contact')}
             </Text>

@@ -1,11 +1,12 @@
 import {Dimensions, StyleSheet} from 'react-native';
 
-const {width: SCREEN_WIDTH} = Dimensions.get('window');
+const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
+const ratio = SCREEN_WIDTH / SCREEN_HEIGHT;
 
 export default StyleSheet.create({
   pray_btn: {
-    width: SCREEN_WIDTH - 20,
-    height: 115,
+    width: SCREEN_WIDTH - 40,
+    height: ratio > 0.5 ? 95 : 115,
     shadowColor: 'rgba(0, 0, 0, 0.4)',
     shadowOffset: {width: 3, height: 0},
     shadowRadius: 6,
@@ -19,8 +20,8 @@ export default StyleSheet.create({
     marginBottom: 7,
   },
   pray_btn_active: {
-    width: SCREEN_WIDTH - 20,
-    height: 115,
+    width: SCREEN_WIDTH - 40,
+    height: ratio > 0.5 ? 95 : 115,
     shadowColor: '#f1ea90',
     shadowOffset: {width: 0, height: 4},
     shadowRadius: 10,
@@ -43,6 +44,7 @@ export default StyleSheet.create({
     textShadowOffset: {width: 1, height: 2},
     textShadowRadius: 2,
     color: '#ffffff',
+    fontSize: ratio > 0.5 ? 18 : 20,
     fontFamily: 'Lato-Regular',
     fontWeight: '700',
     letterSpacing: 1,

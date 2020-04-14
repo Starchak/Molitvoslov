@@ -1,4 +1,4 @@
-import {StyleSheet, Platform} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
 
 export default StyleSheet.create({
@@ -12,7 +12,7 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 143,
+    marginTop: 113,
     paddingTop: 7,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
@@ -33,7 +33,7 @@ export default StyleSheet.create({
         top: Platform.OS === 'ios' ? -45 : -10,
       },
       {
-        minHeight: 200,
+        minHeight: 150,
         top: Platform.OS === 'ios' ? -20 : -10,
       },
     ),
@@ -45,6 +45,7 @@ export default StyleSheet.create({
     letterSpacing: 1,
     width: '80%',
     textAlign: 'center',
+    fontSize: 20,
   },
   sub_title: {
     color: '#ffffff',
@@ -52,6 +53,7 @@ export default StyleSheet.create({
     fontWeight: '400',
     letterSpacing: 0.6,
     lineHeight: 19,
+    fontSize: 12,
   },
   main: {
     textAlign: 'center',

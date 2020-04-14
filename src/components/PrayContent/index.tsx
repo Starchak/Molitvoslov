@@ -35,10 +35,8 @@ class PrayContent extends Component<Props, State> {
     return (
       <View style={styles.prays_content}>
         <ImageBackground source={header} style={styles.prays_content_bg}>
-          <Text style={[styles.title, Size(20)]}>
-            {translate(this.props.data.title)}
-          </Text>
-          <Text style={[styles.sub_title, Size(12)]}>
+          <Text style={styles.title}>{translate(this.props.data.title)}</Text>
+          <Text style={styles.sub_title}>
             {translate(this.props.data.sub_title)}
           </Text>
         </ImageBackground>

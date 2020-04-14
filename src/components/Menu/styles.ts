@@ -42,6 +42,7 @@ export default StyleSheet.create({
 
   menu_text: {
     marginTop: 4,
+    fontSize: 12,
     color: Colors.red,
   },
   menu_text_active: {

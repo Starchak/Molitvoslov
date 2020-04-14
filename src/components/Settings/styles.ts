@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 import Colors from '../../config/colors';
 
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
@@ -39,6 +39,7 @@ export default StyleSheet.create({
     color: Colors.red,
     marginBottom: 5,
     fontFamily: 'Lato-Bold',
+    fontSize: 12,
   },
 
   btn: {
@@ -54,5 +55,6 @@ export default StyleSheet.create({
   btn_text: {
     color: Colors.red,
     fontFamily: 'Lato-Light',
+    fontSize: 12,
   },
 });
