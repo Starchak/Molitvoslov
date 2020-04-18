@@ -79,19 +79,19 @@ class Menu extends Component<Props, State> {
       <>
         <View style={styles.menu_container}>
           {this.state.show ? (
-            <Image style={styles.menu_ornament} source={ornament_dark_img} />
+            <Image style={styles.menu_ornament} source={ornament_dark_img}/>
           ) : (
-            <Image style={styles.menu_ornament} source={ornament_light_img} />
+            <Image style={styles.menu_ornament} source={ornament_light_img}/>
           )}
 
-          <Image style={styles.menu_bg} source={bottom_shape_img} />
+          <Image style={styles.menu_bg} source={bottom_shape_img}/>
           <TouchableOpacity
             style={styles.menu_btn}
             onPress={this.navigateToPrays}>
             {this.state.praysActive ? (
-              <Image style={styles.menu_pray_icon} source={pray_active_img} />
+              <Image style={styles.menu_pray_icon} source={pray_active_img}/>
             ) : (
-              <Image style={styles.menu_pray_icon} source={pray_img} />
+              <Image style={styles.menu_pray_icon} source={pray_img}/>
             )}
             <Text
               style={
@@ -111,7 +111,7 @@ class Menu extends Component<Props, State> {
                 source={menu_active_img}
               />
             ) : (
-              <Image style={styles.menu_settings_icon} source={menu_img} />
+              <Image style={styles.menu_settings_icon} source={menu_img}/>
             )}
             <Text
               style={
@@ -126,9 +126,9 @@ class Menu extends Component<Props, State> {
             style={[styles.menu_btn, {marginLeft: 26}]}
             onPress={this.navigateToContact}>
             {this.state.contactActive ? (
-              <Image style={styles.menu_pray_icon} source={pray_active_img} />
+              <Image style={styles.menu_pray_icon} source={pray_active_img}/>
             ) : (
-              <Image style={styles.menu_pray_icon} source={pray_img} />
+              <Image style={styles.menu_pray_icon} source={pray_img}/>
             )}
             <Text
               style={
