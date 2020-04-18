@@ -27,7 +27,7 @@ class Contact extends Component<Props> {
         <StatusBar
           backgroundColor="transparent"
           translucent
-          barStyle="dark-content"
+          barStyle="light-content"
         />
 
         <SafeAreaView

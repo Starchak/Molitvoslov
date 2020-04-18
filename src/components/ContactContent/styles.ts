@@ -9,7 +9,6 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 67,
   },
   prays_content: {
     flex: 1,

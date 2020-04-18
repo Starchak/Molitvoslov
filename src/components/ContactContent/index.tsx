@@ -1,6 +1,14 @@
 import React, {Component} from 'react';
 
-import {Image, ImageBackground, Linking, ScrollView, Text, TouchableOpacity, View,} from 'react-native';
+import {
+  Image,
+  ImageBackground,
+  Linking,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import styles from './styles';
 import header from '../../assets/img/pray_bg_1.png';
@@ -19,17 +27,17 @@ class ContactContent extends Component<Props, State> {
             <Text style={styles.title}>{translate('contactTitle')}</Text>
           </ImageBackground>
           <View style={styles.prays_content_container}>
-            <Image source={bg} resizeMode={'contain'} style={styles.pray_bg}/>
+            <Image source={bg} resizeMode={'contain'} style={styles.pray_bg} />
             <ScrollView>
-              <Text style={[styles.p, styles.main]}>{translate('contactSubTitle')} </Text>
+              <Text style={[styles.p, styles.main]}>
+                {translate('contactSubTitle')}{' '}
+              </Text>
 
               <Text style={[styles.p, styles.main]}>
                 {translate('contactP1')}
               </Text>
               <View style={styles.p}>
-                <Text style={styles.main}>
-                  {translate('contactP2')}
-                </Text>
+                <Text style={styles.main}>{translate('contactP2')}</Text>
                 <TouchableOpacity
                   onPress={async () =>
                     await Linking.openURL('https://newlife.bible/home')
@@ -38,9 +46,7 @@ class ContactContent extends Component<Props, State> {
                 </TouchableOpacity>
               </View>
               <View style={styles.p}>
-                <Text style={styles.main}>
-                  {translate('contactP3')}
-                </Text>
+                <Text style={styles.main}>{translate('contactP3')}</Text>
                 <TouchableOpacity
                   onPress={async () =>
                     await Linking.openURL('https://newlife.bible/find-a-church')
@@ -51,9 +57,7 @@ class ContactContent extends Component<Props, State> {
                 </TouchableOpacity>
               </View>
               <View style={styles.p}>
-                <Text style={styles.main}>
-                  {translate('contactP4')}
-                </Text>
+                <Text style={styles.main}>{translate('contactP4')}</Text>
                 <TouchableOpacity
                   onPress={async () =>
                     await Linking.openURL(
@@ -83,6 +87,7 @@ class ContactContent extends Component<Props, State> {
                   <Text style={styles.link}>https://molitvoslov.app/</Text>
                 </TouchableOpacity>
               </View>
+              <View style={{height: 25}} />
             </ScrollView>
           </View>
         </View>
