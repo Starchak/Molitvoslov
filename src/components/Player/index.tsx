@@ -124,8 +124,7 @@ class Player extends Component<Props, State> {
         .fetch('GET', this.props.url[currentLang], {
           'Content-Type': 'audio/mpeg',
         })
-        .progress(() => {
-        })
+        .progress(() => {})
         .then((res) => {
           let path = res.path();
           RNFetchBlob.fs.mv(path, path + '.mp3').then(() => {
@@ -170,13 +169,7 @@ class Player extends Component<Props, State> {
       <View style={styles.player}>
         <TouchableOpacity style={styles.play} onPress={() => this.PlayPause()}>
           {!this.state.isDownloaded ? (
-            <Image
-              style={[
-                styles.play_img,
-                {tintColor: this.state.downloading ? '#aaaaaa' : '#000000'},
-              ]}
-              source={download_img}
-            />
+            <Image style={[styles.play_img]} source={download_img} />
           ) : this.state.isPlay ? (
             <Image style={styles.play_img} source={pause_img} />
           ) : (

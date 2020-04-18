@@ -18,11 +18,12 @@ export default StyleSheet.create({
     width: 40,
   },
   play_img: {
-    width: '100%',
+    height: 40,
+    width: 40,
   },
   play_bg: {
     height: '70%',
     position: 'absolute',
-    backgroundColor: "#000000"
+    backgroundColor: '#000000',
   },
 });

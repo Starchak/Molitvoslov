@@ -40,6 +40,11 @@ export default StyleSheet.create({
     height: 22,
   },
 
+  menu_contact_icon: {
+    width: 24,
+    height: 24,
+  },
+
   menu_text: {
     marginTop: 4,
     fontSize: 12,
