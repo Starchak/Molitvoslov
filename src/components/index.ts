@@ -4,6 +4,7 @@ export {Overlay} from './Overlay';
 export {PrayButton} from './PrayButton';
 export {PraysContent} from './PraysContent';
 export {PrayContent} from './PrayContent';
+export {ContactContent} from './ContactContent';
 export {ScreenTitle} from './ScreenTitle';
 export {Player} from './Player';
 export {ProgressBar} from './ProgressBar';

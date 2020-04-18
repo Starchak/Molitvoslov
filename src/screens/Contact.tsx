@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {SafeAreaView, StatusBar} from 'react-native';
-import {Menu} from '../components';
+import {Menu, ContactContent} from '../components';
 
 import {changeSize} from '../config/typography';
 
@@ -32,6 +32,7 @@ class Contact extends Component<Props> {
 
         <SafeAreaView
           style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+          <ContactContent />
           <Menu
             routeName={this.props.route.name}
             navigation={this.props.navigation}
