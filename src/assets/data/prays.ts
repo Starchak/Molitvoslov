@@ -23,7 +23,7 @@ const prays = [
     durations: {
       ru: 32,
       ua: 34,
-      en: 0,
+      en: 29,
     },
     track: {
       id: '1',
@@ -48,7 +48,7 @@ const prays = [
     durations: {
       ru: 41,
       ua: 40,
-      en: 0,
+      en: 41,
     },
     track: {
       id: '2',
@@ -73,7 +73,7 @@ const prays = [
     durations: {
       ru: 108,
       ua: 117,
-      en: 0,
+      en: 93,
     },
     track: {
       id: '3',
@@ -96,9 +96,9 @@ const prays = [
       ua: 'https://molitvoslov.app/audio/ua_audio_4.mp3',
     },
     durations: {
-      ru: 157,
+      ru: 57,
       ua: 61,
-      en: 0,
+      en: 53,
     },
     track: {
       id: '4',

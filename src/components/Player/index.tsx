@@ -33,6 +33,7 @@ class Player extends Component<Props, State> {
     progress: {position: 0, duration: 0},
     isPlay: false,
     isDownloaded: false,
+    downloading: false,
     url: '',
   };
 
@@ -115,42 +116,55 @@ class Player extends Component<Props, State> {
   }
 
   PlayPause() {
-    if (!this.state.isDownloaded) {
-      // Vlad write code for download here
-      this.setState({downloading: true});
-      RNFetchBlob.config({
-        fileCache: true,
-      })
-        .fetch('GET', this.props.url[currentLang], {
-          'Content-Type': 'audio/mpeg',
+    if (!this.state.downloading) {
+      if (!this.state.isDownloaded) {
+        console.log('DOWNLOAD!!!!!!!');
+        TrackPlayer.setupPlayer();
+        // Vlad write code for download here
+        // Vlad already writed this code
+        this.setState({downloading: true});
+        RNFetchBlob.config({
+          fileCache: true,
         })
-        .progress(() => {})
-        .then((res) => {
-          let path = res.path();
-          RNFetchBlob.fs.mv(path, path + '.mp3').then(() => {
-            path += '.mp3';
-            AsyncStorage.setItem(this.props.track.id + '_' + currentLang, path);
-            this.setState({url: path, isDownloaded: true, downloading: false});
-            TrackPlayer.add({
-              ...this.props.track,
-              url: 'file://' + path,
-              duration: this.props.durations[currentLang],
+          .fetch('GET', this.props.url[currentLang], {
+            'Content-Type': 'audio/mpeg',
+          })
+          .progress(() => {
+          })
+          .then((res) => {
+            let path = res.path();
+            RNFetchBlob.fs.mv(path, path + '.mp3').then(() => {
+              path += '.mp3';
+              AsyncStorage.setItem(
+                this.props.track.id + '_' + currentLang,
+                path,
+              );
+              this.setState({
+                url: path,
+                isDownloaded: true,
+                downloading: false,
+              });
+              TrackPlayer.add({
+                ...this.props.track,
+                url: 'file://' + path,
+                duration: this.props.durations[currentLang],
+              });
             });
           });
-        });
-    } else if (this.state.isPlay) {
-      this.Pause(false);
-    } else {
-      TrackPlayer.play()
-        .then((el) => {
-          console.log(el);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-      playInterval = setInterval(this.Progress, 100);
-      this.setState({isPlay: true});
-      console.log(this.state, this.props.durations[currentLang], 'Play');
+      } else if (this.state.isPlay) {
+        this.Pause(false);
+      } else {
+        TrackPlayer.play()
+          .then((el) => {
+            console.log(el);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+        playInterval = setInterval(this.Progress, 100);
+        this.setState({isPlay: true});
+        console.log(this.state, this.props.durations[currentLang], 'Play');
+      }
     }
   }
 
@@ -169,7 +183,15 @@ class Player extends Component<Props, State> {
       <View style={styles.player}>
         <TouchableOpacity style={styles.play} onPress={() => this.PlayPause()}>
           {!this.state.isDownloaded ? (
-            <Image style={[styles.play_img]} source={download_img} />
+            this.state.downloading ? (
+              <Image
+                style={styles.play_img}
+                source={download_img}
+                tintColor={'#666666'}
+              />
+            ) : (
+              <Image style={[styles.play_img]} source={download_img}/>
+            )
           ) : this.state.isPlay ? (
             <Image style={styles.play_img} source={pause_img} />
           ) : (
