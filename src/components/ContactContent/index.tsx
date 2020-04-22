@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import {
-  Image,
   ImageBackground,
   Linking,
   ScrollView,
@@ -13,7 +12,6 @@ import {
 import styles from './styles';
 import header from '../../assets/img/pray_bg_1.png';
 import {translate} from '../../config/translate';
-import bg from '../../assets/img/bg_2.png';
 
 type Props = {};
 type State = {};
@@ -26,9 +24,8 @@ class ContactContent extends Component<Props, State> {
           <ImageBackground source={header} style={styles.prays_content_bg}>
             <Text style={styles.title}>{translate('contactTitle')}</Text>
           </ImageBackground>
-          <View style={styles.prays_content_container}>
-            <Image source={bg} resizeMode={'contain'} style={styles.pray_bg} />
-            <ScrollView>
+          <ScrollView stickyHeaderIndices={[0]} style={{top: 10}}>
+            <View style={styles.prays_content_container}>
               <Text style={[styles.p, styles.main]}>
                 {translate('contactSubTitle')}{' '}
               </Text>
@@ -87,9 +84,9 @@ class ContactContent extends Component<Props, State> {
                   <Text style={styles.link}>https://molitvoslov.app/</Text>
                 </TouchableOpacity>
               </View>
-              <View style={{height: 25}} />
-            </ScrollView>
-          </View>
+              <View style={{height: 55}} />
+            </View>
+          </ScrollView>
         </View>
       </View>
     );

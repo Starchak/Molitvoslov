@@ -1,7 +1,7 @@
-import {Platform, StyleSheet} from 'react-native';
+import {Platform, StyleSheet, Dimensions} from 'react-native';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
 
-// const {height: SCREEN_HEIGHT, width: SCREEN_WIDTH} = Dimensions.get('window');
+const {height: SCREEN_HEIGHT} = Dimensions.get('window');
 // const ratio = SCREEN_WIDTH / SCREEN_HEIGHT;
 
 export default StyleSheet.create({
@@ -17,11 +17,13 @@ export default StyleSheet.create({
     paddingBottom: 67,
   },
   prays_content_container: {
+    height: SCREEN_HEIGHT,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 113,
     paddingTop: 7,
+    top: -10,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     backgroundColor: '#ffffff',

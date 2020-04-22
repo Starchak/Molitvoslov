@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TrackPlayer, {Capability, Track} from 'react-native-track-player';
 
-import {Image, TouchableOpacity, View} from 'react-native';
+import {Image, TouchableOpacity, View, ActivityIndicator} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {ProgressBar} from '../ProgressBar';
 
@@ -34,6 +34,7 @@ class Player extends Component<Props, State> {
     isPlay: false,
     isDownloaded: false,
     url: '',
+    downloading: false,
   };
 
   componentDidMount(): void {
@@ -169,7 +170,11 @@ class Player extends Component<Props, State> {
       <View style={styles.player}>
         <TouchableOpacity style={styles.play} onPress={() => this.PlayPause()}>
           {!this.state.isDownloaded ? (
-            <Image style={[styles.play_img]} source={download_img} />
+            this.state.downloading ? (
+              <ActivityIndicator size="large" color="#e0c081" />
+            ) : (
+              <Image style={[styles.play_img]} source={download_img} />
+            )
           ) : this.state.isPlay ? (
             <Image style={styles.play_img} source={pause_img} />
           ) : (

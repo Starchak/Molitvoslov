@@ -40,21 +40,29 @@ class PrayContent extends Component<Props, State> {
             {translate(this.props.data.sub_title)}
           </Text>
         </ImageBackground>
-        <View style={styles.prays_content_container}>
-          <Image source={bg} resizeMode={'contain'} style={styles.pray_bg}/>
-          {this.props.data.track ? (
-            <Player
-              track={this.props.data.track}
-              url={this.props.data.url}
-              durations={this.props.data.durations[currentLang]}
-            />
-          ) : null}
-          <ScrollView>
+        <ScrollView stickyHeaderIndices={[2, 0]} style={{top: 10}}>
+          <View style={styles.prays_content_container}>
+            <Image source={bg} resizeMode={'contain'} style={styles.pray_bg} />
+          </View>
+
+          <View style={{position: 'relative', zIndex: 10}}>
             <Text style={[styles.main, Size(18, 30)]}>
               {translate(this.props.data.text)}
             </Text>
-          </ScrollView>
-        </View>
+          </View>
+          {this.props.data.track ? (
+            <View style={styles.player_container}>
+              <Player
+                track={this.props.data.track}
+                url={this.props.data.url}
+                durations={this.props.data.durations[currentLang]}
+              />
+            </View>
+          ) : (
+            <View />
+          )}
+          <View style={{height: 25}} />
+        </ScrollView>
       </View>
     );
   }

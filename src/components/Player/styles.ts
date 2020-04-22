@@ -13,6 +13,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     flexDirection: 'row',
+    alignSelf: 'center',
+    top: 10,
   },
   play: {
     width: 40,
