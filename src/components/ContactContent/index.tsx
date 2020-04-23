@@ -7,11 +7,14 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Image,
 } from 'react-native';
 
 import styles from './styles';
-import header from '../../assets/img/pray_bg_1.png';
 import {translate} from '../../config/translate';
+
+import bg from '../../assets/img/bg_2.png';
+import header from '../../assets/img/pray_bg_1.png';
 
 type Props = {};
 type State = {};
@@ -26,6 +29,13 @@ class ContactContent extends Component<Props, State> {
           </ImageBackground>
           <ScrollView stickyHeaderIndices={[0]} style={{top: 10}}>
             <View style={styles.prays_content_container}>
+              <Image
+                source={bg}
+                resizeMode={'contain'}
+                style={styles.pray_bg}
+              />
+            </View>
+            <View style={{position: 'relative', zIndex: 10, paddingTop: 120}}>
               <Text style={[styles.p, styles.main]}>
                 {translate('contactSubTitle')}{' '}
               </Text>
@@ -84,8 +94,8 @@ class ContactContent extends Component<Props, State> {
                   <Text style={styles.link}>https://molitvoslov.app/</Text>
                 </TouchableOpacity>
               </View>
-              <View style={{height: 55}} />
             </View>
+            <View style={{height: 55}} />
           </ScrollView>
         </View>
       </View>

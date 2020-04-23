@@ -35,7 +35,6 @@ class Player extends Component<Props, State> {
     isDownloaded: false,
     downloading: false,
     url: '',
-    downloading: false,
   };
 
   componentDidMount(): void {
@@ -144,16 +143,16 @@ class Player extends Component<Props, State> {
                 isDownloaded: true,
                 downloading: false,
               });
-              TrackPlayer.add({
-                ...this.props.track,
-                url: 'file://' + path,
-                duration: this.props.durations[currentLang],
-              });
             });
           });
       } else if (this.state.isPlay) {
         this.Pause(false);
       } else {
+        TrackPlayer.add({
+          ...this.props.track,
+          url: 'file://' + this.state.url,
+          duration: this.props.durations[currentLang],
+        });
         TrackPlayer.play()
           .then((el) => {
             console.log(el);

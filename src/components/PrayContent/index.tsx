@@ -40,7 +40,7 @@ class PrayContent extends Component<Props, State> {
             {translate(this.props.data.sub_title)}
           </Text>
         </ImageBackground>
-        <ScrollView stickyHeaderIndices={[2, 0]} style={{top: 10}}>
+        <ScrollView stickyHeaderIndices={[2, 0]} style={styles.scroll_view}>
           <View style={styles.prays_content_container}>
             <Image source={bg} resizeMode={'contain'} style={styles.pray_bg} />
           </View>

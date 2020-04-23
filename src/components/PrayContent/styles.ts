@@ -12,6 +12,7 @@ export default StyleSheet.create({
   },
   prays_content_container: {
     height: SCREEN_HEIGHT,
+    width: SCREEN_WIDTH,
     position: 'absolute',
     zIndex: -2,
     flex: 1,
@@ -21,8 +22,11 @@ export default StyleSheet.create({
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     backgroundColor: '#ffffff',
-    width: '100%',
     overflow: 'hidden',
+  },
+  scroll_view: {
+    top: 10,
+    width: SCREEN_WIDTH,
   },
   player_container: {
     width: SCREEN_WIDTH,
@@ -31,7 +35,7 @@ export default StyleSheet.create({
     position: 'absolute',
     left: 0,
     zIndex: 11,
-    top: 103,
+    top: 100,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
   },

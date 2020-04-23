@@ -14,10 +14,10 @@ import PrayScreen from './screens/PrayScreen';
 import {navigationRef} from './config/nav';
 import Contact from './screens/Contact';
 
-const Stack = createStackNavigator();
-
 type Props = {};
 type State = {};
+
+const Stack = createStackNavigator();
 
 class App extends Component<Props, State> {
   constructor(props: Props) {
@@ -43,7 +43,7 @@ class App extends Component<Props, State> {
       <NavigationContainer ref={navigationRef}>
         <Stack.Navigator
           initialRouteName="Initial"
-          screenOptions={{headerShown: false}}>
+          screenOptions={{headerShown: false, gestureEnabled: false}}>
           <Stack.Screen
             name="Initial"
             component={InitialScreen}

@@ -13,6 +13,10 @@ type Props = {
 type State = {};
 
 class PraysScreen extends Component<Props, State> {
+  static navigationOptions = {
+    gesturesEnabled: false,
+  };
+
   state = {};
 
   changeLang = (lang: string) => {

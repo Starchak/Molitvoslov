@@ -18,9 +18,8 @@ export default StyleSheet.create({
   },
   prays_content_container: {
     height: SCREEN_HEIGHT,
+    position: 'absolute',
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
     marginTop: 113,
     paddingTop: 7,
     top: -10,
@@ -71,7 +70,7 @@ export default StyleSheet.create({
     fontSize: 18,
   },
   link: {
-    color: '#777',
+    color: '#2A5DB0',
     fontFamily: 'Lato-Semibold',
     fontSize: 15,
     lineHeight: 25,
