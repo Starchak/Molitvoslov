@@ -80,9 +80,9 @@ class ContactContent extends Component<Props, State> {
                 <Text style={styles.main}>{translate('contactP5')}</Text>
                 <TouchableOpacity
                   onPress={async () =>
-                    await Linking.openURL('mailto:molitvoslov@gmail.com')
+                    await Linking.openURL('mailto:molitvoslov.app@gmail.com')
                   }>
-                  <Text style={styles.link}>molitvoslov@gmail.com</Text>
+                  <Text style={styles.link}>molitvoslov.app@gmail.com</Text>
                 </TouchableOpacity>
               </View>
               <View style={styles.p}>
