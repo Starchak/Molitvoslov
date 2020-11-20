@@ -19,11 +19,15 @@ const prays = [
       ru: 'https://molitvoslov.app/audio/ru_audio_1.mp3',
       en: 'https://molitvoslov.app/audio/en_audio_1.mp3',
       ua: 'https://molitvoslov.app/audio/ua_audio_1.mp3',
+      hy: 'https://molitvoslov.app/audio/hy_audio_1.mp3',
+      ro: 'https://molitvoslov.app/audio/ro_audio_1.mp3',
     },
     durations: {
       ru: 32,
       ua: 34,
       en: 29,
+      ro: 30,
+      hy: 41,
     },
     track: {
       id: '1',
@@ -44,11 +48,15 @@ const prays = [
       ru: 'https://molitvoslov.app/audio/ru_audio_2.mp3',
       en: 'https://molitvoslov.app/audio/en_audio_2.mp3',
       ua: 'https://molitvoslov.app/audio/ua_audio_2.mp3',
+      hy: 'https://molitvoslov.app/audio/hy_audio_2.mp3',
+      ro: 'https://molitvoslov.app/audio/ro_audio_2.mp3',
     },
     durations: {
       ru: 41,
       ua: 40,
       en: 41,
+      ro: 41,
+      hy: 47,
     },
     track: {
       id: '2',
@@ -69,11 +77,15 @@ const prays = [
       ru: 'https://molitvoslov.app/audio/ru_audio_3.mp3',
       en: 'https://molitvoslov.app/audio/en_audio_3.mp3',
       ua: 'https://molitvoslov.app/audio/ua_audio_3.mp3',
+      hy: 'https://molitvoslov.app/audio/hy_audio_3.mp3',
+      ro: 'https://molitvoslov.app/audio/ro_audio_3.mp3',
     },
     durations: {
       ru: 108,
       ua: 117,
       en: 93,
+      ro: 108,
+      hy: 132,
     },
     track: {
       id: '3',
@@ -94,11 +106,15 @@ const prays = [
       ru: 'https://molitvoslov.app/audio/ru_audio_4.mp3',
       en: 'https://molitvoslov.app/audio/en_audio_4.mp3',
       ua: 'https://molitvoslov.app/audio/ua_audio_4.mp3',
+      hy: 'https://molitvoslov.app/audio/hy_audio_4.mp3',
+      ro: 'https://molitvoslov.app/audio/ro_audio_4.mp3',
     },
     durations: {
       ru: 57,
       ua: 61,
       en: 53,
+      ro: 64,
+      hy: 64,
     },
     track: {
       id: '4',

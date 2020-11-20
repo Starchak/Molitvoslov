@@ -94,6 +94,24 @@ class Settings extends Component<Props, State> {
             onPress={() => this.changeLang('en')}>
             <Text style={styles.btn_text}>{translate('en')}</Text>
           </TouchableOpacity>
+          <TouchableOpacity
+            style={
+              currentLang === 'hy'
+                ? [styles.btn, styles.btn_active]
+                : styles.btn
+            }
+            onPress={() => this.changeLang('hy')}>
+            <Text style={styles.btn_text}>{translate('hy')}</Text>
+          </TouchableOpacity>
+          {/*<TouchableOpacity*/}
+          {/*  style={*/}
+          {/*    currentLang === 'ro'*/}
+          {/*      ? [styles.btn, styles.btn_active]*/}
+          {/*      : styles.btn*/}
+          {/*  }*/}
+          {/*  onPress={() => this.changeLang('ro')}>*/}
+          {/*  <Text style={styles.btn_text}>{translate('ro')}</Text>*/}
+          {/*</TouchableOpacity>*/}
         </View>
         <View style={styles.line} />
         <View style={[styles.settings_block, styles.font_block]}>
