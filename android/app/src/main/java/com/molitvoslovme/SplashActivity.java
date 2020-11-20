@@ -1,4 +1,4 @@
-package com.prayapp;
+package com.molitvoslovme;
 
 import android.content.Intent;
 import android.os.Bundle;

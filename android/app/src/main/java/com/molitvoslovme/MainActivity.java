@@ -1,4 +1,4 @@
-package com.prayapp;
+package com.molitvoslovme;
 
 import com.facebook.react.ReactActivity;
 import org.devio.rn.splashscreen.SplashScreen; // Import this.
