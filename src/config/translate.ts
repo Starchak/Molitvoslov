@@ -12,6 +12,7 @@ const translationGetters = {
   ua: () => require('../assets/translations/ua.json'),
   en: () => require('../assets/translations/en.json'),
   hy: () => require('../assets/translations/hy.json'),
+  ro: () => require('../assets/translations/ro.json'),
 };
 
 const translate = memoize(
@@ -38,6 +39,9 @@ const setI18nConfig = (setLang?: string) => {
       break;
     case 'hy':
       userLang = {languageTag: 'hy', isRTL: false};
+      break;
+    case 'ro':
+      userLang = {languageTag: 'ro', isRTL: false};
       break;
     default:
   }
