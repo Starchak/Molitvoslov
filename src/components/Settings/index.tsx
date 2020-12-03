@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Animated, Dimensions, Text, TouchableOpacity, View} from 'react-native';
+import {Animated, Dimensions, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {currentLang, translate} from '../../config/translate';
 import {currentSize} from '../../config/typography';
 
@@ -67,53 +67,55 @@ class Settings extends Component<Props, State> {
       <Animated.View style={[styles.settings, {bottom: this.state.showAnim}]}>
         <View style={[styles.settings_block, styles.lang_block]}>
           <Text style={styles.title}>{translate('selectLang')}</Text>
-          <TouchableOpacity
-            style={
-              currentLang === 'ru'
-                ? [styles.btn, styles.btn_active]
-                : styles.btn
-            }
-            onPress={() => this.changeLang('ru')}>
-            <Text style={styles.btn_text}>{translate('ru')}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={
-              currentLang === 'ua'
-                ? [styles.btn, styles.btn_active]
-                : styles.btn
-            }
-            onPress={() => this.changeLang('ua')}>
-            <Text style={styles.btn_text}>{translate('ua')}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={
-              currentLang === 'en'
-                ? [styles.btn, styles.btn_active]
-                : styles.btn
-            }
-            onPress={() => this.changeLang('en')}>
-            <Text style={styles.btn_text}>{translate('en')}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={
-              currentLang === 'hy'
-                ? [styles.btn, styles.btn_active]
-                : styles.btn
-            }
-            onPress={() => this.changeLang('hy')}>
-            <Text style={styles.btn_text}>{translate('hy')}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={
-              currentLang === 'ro'
-                ? [styles.btn, styles.btn_active]
-                : styles.btn
-            }
-            onPress={() => this.changeLang('ro')}>
-            <Text style={styles.btn_text}>{translate('ro')}</Text>
-          </TouchableOpacity>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <TouchableOpacity
+              style={
+                currentLang === 'ru'
+                  ? [styles.btn, styles.btn_active]
+                  : styles.btn
+              }
+              onPress={() => this.changeLang('ru')}>
+              <Text style={styles.btn_text}>{translate('ru')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={
+                currentLang === 'ua'
+                  ? [styles.btn, styles.btn_active]
+                  : styles.btn
+              }
+              onPress={() => this.changeLang('ua')}>
+              <Text style={styles.btn_text}>{translate('ua')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={
+                currentLang === 'en'
+                  ? [styles.btn, styles.btn_active]
+                  : styles.btn
+              }
+              onPress={() => this.changeLang('en')}>
+              <Text style={styles.btn_text}>{translate('en')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={
+                currentLang === 'hy'
+                  ? [styles.btn, styles.btn_active]
+                  : styles.btn
+              }
+              onPress={() => this.changeLang('hy')}>
+              <Text style={styles.btn_text}>{translate('hy')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={
+                currentLang === 'ro'
+                  ? [styles.btn, styles.btn_active]
+                  : styles.btn
+              }
+              onPress={() => this.changeLang('ro')}>
+              <Text style={styles.btn_text}>{translate('ro')}</Text>
+            </TouchableOpacity>
+          </ScrollView>
         </View>
-        <View style={styles.line} />
+        <View style={styles.line}/>
         <View style={[styles.settings_block, styles.font_block]}>
           <Text style={styles.title}>{translate('fontSize')}</Text>
           <TouchableOpacity
