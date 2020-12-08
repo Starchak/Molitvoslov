@@ -8,11 +8,13 @@ import styles from './styles';
 // Icons
 import bg from '../../assets/img/pray_list_bg.png';
 import ornament from '../../assets/img/ornament_line.png';
+import {translate} from '../../config/translate';
 
 type Props = {};
 type State = {};
+
 function Footer() {
-  return <View style={{height: 25}}></View>;
+  return <View style={{height: 25}} />;
 }
 
 class PraysContent extends Component<Props, State> {
@@ -26,14 +28,16 @@ class PraysContent extends Component<Props, State> {
               source={ornament}
               style={{...styles.ornament, transform: [{rotate: '180deg'}]}}
             />
-            <Text style={styles.title}>МОЛИТВОСЛОВ</Text>
+            <Text style={styles.title}>
+              {translate('name') || 'MOLITVOSLOV'}
+            </Text>
             <Image source={ornament} style={styles.ornament} />
           </View>
           <FlatList
             data={prays}
             renderItem={({item}) => <PrayButton data={item} />}
             keyExtractor={(item) => item.id}
-            ListFooterComponent={<Footer/>}
+            ListFooterComponent={<Footer />}
           />
         </View>
       </View>

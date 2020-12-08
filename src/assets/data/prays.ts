@@ -55,7 +55,7 @@ const prays = [
       ru: 41,
       ua: 40,
       en: 41,
-      ro: 41,
+      ro: 42,
       hy: 47,
     },
     track: {
@@ -84,7 +84,7 @@ const prays = [
       ru: 108,
       ua: 117,
       en: 93,
-      ro: 108,
+      ro: 109,
       hy: 132,
     },
     track: {
@@ -113,7 +113,7 @@ const prays = [
       ru: 57,
       ua: 61,
       en: 53,
-      ro: 64,
+      ro: 65,
       hy: 64,
     },
     track: {

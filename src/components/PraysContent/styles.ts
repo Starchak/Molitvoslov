@@ -36,7 +36,7 @@ export default StyleSheet.create({
     textShadowOffset: {width: 1, height: 2},
     textShadowRadius: 2,
     color: '#ffffff',
-    fontFamily: 'BaskervilleCyrillic-Bold',
+    fontFamily: 'times',
     letterSpacing: 1.5,
     fontSize: 30,
   },
