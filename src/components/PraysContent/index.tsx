@@ -26,14 +26,14 @@ class PraysContent extends Component<Props, State> {
               source={ornament}
               style={{...styles.ornament, transform: [{rotate: '180deg'}]}}
             />
-            <Text style={styles.title}>МОЛИТВОСЛОВ</Text>
+            <Text style={styles.title}>MOLITVOSLOV</Text>
             <Image source={ornament} style={styles.ornament} />
           </View>
           <FlatList
             data={prays}
             renderItem={({item}) => <PrayButton data={item} />}
             keyExtractor={(item) => item.id}
-            ListFooterComponent={<Footer/>}
+            ListFooterComponent={<Footer />}
           />
         </View>
       </View>
